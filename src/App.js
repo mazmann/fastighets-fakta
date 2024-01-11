@@ -31,7 +31,6 @@ function App() {
                 contactRep,
                 phoneNumber,
                 email,
-                date
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -51,7 +50,7 @@ function App() {
             <div className="App">
             <h1>This is React WebApp </h1>
             <form action="">
-                <input type="text" placeholder="name"
+                <input type="text" placeholder="Fastighetsgare"
                     value={propertyOwner} onChange={(e) => setPropertyOwner(e.target.value)} />
                 <input type="text" placeholder="name"
                     value={organisationNumber} onChange={(e) => setOrganisationNumber(e.target.value)} />
@@ -71,8 +70,8 @@ function App() {
                     value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
                 <input type="email" placeholder="email"
                     value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type="text" placeholder="name"
-                    value={date} onChange={(e) => setDate(e.target.value)} />
+                {/* <input type="text" placeholder="name"
+                    value={date} onChange={(e) => setDate(e.target.value)} /> */}
                 <button type="submit"
                     onClick={handleOnSubmit}>submit</button>
             </form>

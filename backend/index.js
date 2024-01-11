@@ -7,8 +7,8 @@ const port = 5000;
 
 mongoose.connect('mongodb://localhost:27017/', {
     dbName: 'fastighets_info',
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useNewUrlParser: false,
+    useUnifiedTopology: false,
 })
     .then(() => {
         console.log('Connected to yourDB-name database');
@@ -21,44 +21,43 @@ mongoose.connect('mongodb://localhost:27017/', {
 const UserSchema = new mongoose.Schema({
     propertyOwner: {
         type: String,
-        required: true,
+        required: false,
     },
     organisationNumber: {
         type: String,
-        required: true,
+        required: false,
     },
     properyTag: {
         type: String,
-        required: true,
+        required: false,
     },
     propertyAdress: {
         type: String,
-        required: true,
+        required: false,
     },
     propertyArea: {
         type: String,
-        required: true,
+        required: false,
     },
     visitingAdress: {
         type: String,
-        required: true,
+        required: false,
     },
     visitingArea: {
         type: String,
-        required: true,
+        required: false,
     },
     contactRep: {
         type: String,
-        required: true,
+        required: false,
     },
     phoneNumber: {
         type: String,
-        required: true,
+        required: false,
     },
     email: {
         type: String,
-        required: true,
-        unique: true,
+        required: false,
     },
     date: {
         type: Date,
@@ -93,7 +92,7 @@ app.post('/register', async (req, resp) => {
             console.log('User already registered');
         }
     } catch (e) {
-        console.error('Something Went Wrong:', e);
+        console.error('Error:', e);
         resp.status(500).send('Something Went Wrong');
     }
 });
