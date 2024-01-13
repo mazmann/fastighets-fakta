@@ -47,7 +47,7 @@ input {
  justify-content: center;
 }
 
-button {
+.submit-button {
   padding: 12px;
   background-color: #4caf50;
   color: white;
@@ -58,7 +58,7 @@ button {
   width: 10rem;
 }
 
-button:hover {
+.submit-button:hover {
   background-color: #45a049;
 }
 

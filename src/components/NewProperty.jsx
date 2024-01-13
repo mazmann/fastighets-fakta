@@ -179,7 +179,7 @@ function NewProperty() {
         <br />
         <div className='button-container'>
           {!successMessage ? (
-            <button type="submit" onClick={handleOnSubmit}>
+            <button className="submit-button" type="submit" onClick={handleOnSubmit}>
               Submit
             </button>
           ) : (
