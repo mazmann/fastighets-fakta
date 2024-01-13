@@ -1,7 +1,6 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { useState } from 'react'
-import FiveInputFieldsComponent from './components/inputFields';
 
 function App() {
     const [propertyOwner, setPropertyOwner] = useState("");

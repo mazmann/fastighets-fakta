@@ -7,11 +7,11 @@ const port = 5000;
 
 mongoose.connect('mongodb://localhost:27017/', {
     dbName: 'fastighets_info',
-    useNewUrlParser: false,
-    useUnifiedTopology: false,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 })
     .then(() => {
-        console.log('Connected to yourDB-name database');
+        console.log('Connected to database');
     })
     .catch((err) => {
         console.error('Error connecting to MongoDB:', err);
@@ -65,7 +65,7 @@ const UserSchema = new mongoose.Schema({
     },
 });
 
-const User = mongoose.model('hummer', UserSchema);
+const User = mongoose.model('User', UserSchema, 'fastighets_data');
 
 // For backend and express
 app.use(express.json());
