@@ -13,6 +13,7 @@ function NewProperty() {
   const [contactRep, setContactRep] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
+  const [successMessage, setSuccessMessage] = useState(false);
 
   const navigate = useNavigate();
 
@@ -39,9 +40,13 @@ function NewProperty() {
     result = await result.json();
     console.warn(result);
     if (result) {
-      alert('Data saved successfully');
+      setSuccessMessage(true);
       setEmail('');
       navigate('/'); // Navigate to the display route if needed
+
+      setTimeout(() => {
+        setSuccessMessage(false);
+      }, 5000);
     }
   };
 
@@ -50,13 +55,6 @@ function NewProperty() {
       <h1>Register Property</h1>
       <form>
       <table>
-          {/* <thead>
-            <tr>
-              <th>Property Owner</th>
-              <th>Organisation Number</th>
-              <th>Property Tag</th>
-            </tr>
-          </thead> */}
           <tbody>
             <tr>
               <td>
@@ -180,9 +178,13 @@ function NewProperty() {
         </table>
         <br />
         <div className='button-container'>
-        <button type="submit" onClick={handleOnSubmit}>
-          Submit
-        </button>
+          {!successMessage ? (
+            <button type="submit" onClick={handleOnSubmit}>
+              Submit
+            </button>
+          ) : (
+            <p className="success-message">Saved successfully</p>
+          )}
         </div>
       </form>
     </div>

@@ -61,3 +61,8 @@ button {
 button:hover {
   background-color: #45a049;
 }
+
+p {
+  font-size: 35px;
+  margin: 0;
+}
