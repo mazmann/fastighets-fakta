@@ -27,11 +27,11 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    properyTag: {
+    propertyTag: {
         type: String,
         required: false,
     },
-    propertyAdress: {
+    propertyAddress: {
         type: String,
         required: false,
     },
@@ -39,7 +39,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    visitingAdress: {
+    visitingAddress: {
         type: String,
         required: false,
     },
@@ -73,10 +73,14 @@ app.use(cors());
 
 app.get('/favicon.ico', (req, res) => res.status(204));
 
-app.get('/', (req, resp) => {
-    resp.send('App is Working');
-    // You can check if the backend is working or not by entering http://localhost:5000
-    // If you see "App is working," the backend is working properly.
+app.get('/properties', async (req, resp) => {
+    try {
+        const properties = await User.find({}, '-password'); // Exclude the password field
+        resp.json(properties);
+    } catch (e) {
+        console.error('Error:', e);
+        resp.status(500).send('Something Went Wrong');
+    }
 });
 
 app.post('/register', async (req, resp) => {

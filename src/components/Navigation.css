@@ -1,0 +1,39 @@
+
+/* Apply styles only to elements with the 'navbar' class */
+.navbar {
+    text-align: center;
+  }
+  
+  /* Style the navbar list */
+  .navbar-list {
+    background-color: #333; /* Change the background color as needed */
+    padding: 10px 0;
+  }
+  
+  /* Style the navbar items */
+  .navbar-item {
+    display: inline;
+    margin-right: 20px; /* Adjust spacing between navbar items */
+  }
+  
+  /* Style the navbar links */
+  .navbar-link {
+    text-decoration: none;
+    color: #fff; /* Set the font color */
+    font-size: 16px; /* Set the font size */
+  }
+  
+  /* Style the navbar links on hover */
+  .navbar-link:hover {
+    color: #ffcc00; /* Set the color on hover */
+  }
+  
+  /* Remove dots for list items */
+  .navbar-item {
+    list-style-type: none;
+  }
+  
+  /* Remove purple marking after being clicked */
+  .navbar-link:visited {
+    color: #fff; /* Set the font color for visited links */
+  }
