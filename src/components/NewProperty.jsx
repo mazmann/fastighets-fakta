@@ -47,7 +47,7 @@ function NewProperty() {
 
   return (
    <div className="App">
-      <h1>This is React WebApp</h1>
+      <h1>Register Property</h1>
       <form>
       <table>
           {/* <thead>
