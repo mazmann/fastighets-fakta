@@ -179,9 +179,11 @@ function NewProperty() {
           </tbody>
         </table>
         <br />
+        <div className='button-container'>
         <button type="submit" onClick={handleOnSubmit}>
           Submit
         </button>
+        </div>
       </form>
     </div>
   );
