@@ -50,14 +50,25 @@ function NewProperty() {
       <h1>This is React WebApp</h1>
       <form>
       <table>
-          <thead>
+          {/* <thead>
             <tr>
               <th>Property Owner</th>
               <th>Organisation Number</th>
               <th>Property Tag</th>
             </tr>
-          </thead>
+          </thead> */}
           <tbody>
+            <tr>
+              <td>
+                <label>Property Owner:</label>
+              </td>
+              <td>
+                <label>Organisation Number:</label>
+              </td>
+              <td>
+                <label>Property Tag:</label>
+              </td>
+            </tr>
             <tr>
               <td>
                 <input
@@ -81,7 +92,6 @@ function NewProperty() {
                 />
               </td>
             </tr>
-            </tbody>
             <tr>
               <td>
                 <label>Property Address:</label>
@@ -93,7 +103,6 @@ function NewProperty() {
                 <label>Visiting Address:</label>
               </td>
             </tr>
-            <tbody>
             <tr>
               <td>
                 <input
@@ -155,7 +164,7 @@ function NewProperty() {
               <td>
                 <label>Email:</label>
               </td>
-              <td colSpan="2"></td> {/* Empty cell for alignment */}
+
             </tr>
             <tr>
               <td>
@@ -165,7 +174,7 @@ function NewProperty() {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </td>
-              <td colSpan="2"></td> {/* Empty cell for alignment */}
+
             </tr>
           </tbody>
         </table>
