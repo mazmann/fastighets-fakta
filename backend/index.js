@@ -21,7 +21,7 @@ mongoose.connect('mongodb://localhost:27017/', {
 const UserSchema = new mongoose.Schema({
     propertyOwner: {
         type: String,
-        required: false,
+        required: true,
     },
     organisationNumber: {
         type: String,
@@ -33,7 +33,7 @@ const UserSchema = new mongoose.Schema({
     },
     propertyAddress: {
         type: String,
-        required: false,
+        required: true,
     },
     propertyArea: {
         type: String,

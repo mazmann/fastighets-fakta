@@ -29,6 +29,26 @@ table {
 
 label {
   font-size: 16px;
+  z-index: 1;
+  position: relative;
+}
+
+.required-field-container {
+  position: relative;
+  padding: 0;
+  margin-top: -15px;
+  margin-left: -20px;
+  height: 10px;
+ /* Adjust as needed; this example assumes full viewport height */
+}
+
+
+.required-field {
+  color: red;
+  font-size: 40px;
+  font-weight: bold;
+  z-index: 2;
+
 }
 
 input {

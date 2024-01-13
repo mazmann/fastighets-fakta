@@ -58,6 +58,9 @@ function NewProperty() {
           <tbody>
             <tr>
               <td>
+              <div className='required-field-container'>
+              <span className='required-field'>*</span>
+              </div>
                 <label>Property Owner:</label>
               </td>
               <td>
@@ -92,7 +95,10 @@ function NewProperty() {
             </tr>
             <tr>
               <td>
-                <label>Property Address:</label>
+              <div className='required-field-container'>
+              <span className='required-field'>*</span>
+              </div>
+              <label>Property Address:</label>
               </td>
               <td>
                 <label>Property Area:</label>
