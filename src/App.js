@@ -14,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<NewProperty />} />
         <Route path="/display" element={<DisplayProperties />} />
+        <Route path="/register" element={<NewProperty />} />
       </Routes>
       </>
   );

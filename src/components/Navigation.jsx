@@ -12,7 +12,9 @@ function Navigation() {
         <li className="navbar-item">
           <Link to="/display" className="navbar-link">Display Properties</Link>
         </li>
-        {/* Add more navigation links as needed */}
+        <li className="navbar-item">
+          <Link to="/register" className="navbar-link">Register Property</Link>
+        </li>
       </ul>
     </nav>
   );
