@@ -4,3 +4,6 @@
   padding: 20px;
 }
 
+body {
+  overflow-y: scroll; /* Always show vertical scrollbar */
+}
