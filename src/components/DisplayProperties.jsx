@@ -67,7 +67,7 @@ function DisplayProperties() {
   <button className="pagination-button" onClick={() => setPage(currentPage - 1)}>
     {'<'}
   </button>
-  <span className="current-page">Page {currentPage} of {totalPages}</span>
+  <span className="current-page">PAGE {currentPage} OF {totalPages}</span>
   <button className="pagination-button" onClick={() => setPage(currentPage + 1)}>
     {'>'}
   </button>

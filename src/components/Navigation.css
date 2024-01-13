@@ -20,7 +20,8 @@
   .navbar-link {
     text-decoration: none;
     color: #fff; /* Set the font color */
-    font-size: 16px; /* Set the font size */
+    font-size: 16px;
+     /* Set the font size */
   }
   
   /* Style the navbar links on hover */
