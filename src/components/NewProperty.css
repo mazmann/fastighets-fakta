@@ -40,6 +40,11 @@ label span {
   border-radius: 5px; /* Rounded corners */
 }
 
+.table-head {
+  background-color: #333; /* Dark background color */
+  color: white; /* White text color */
+}
+
 
 
 input {

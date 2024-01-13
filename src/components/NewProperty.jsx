@@ -49,14 +49,27 @@ function NewProperty() {
    <div className="App">
       <h1>This is React WebApp</h1>
       <form>
-        <table>
+      <table>
+          <thead>
+            <tr>
+              <th>Property Owner</th>
+              <th>Organisation Number</th>
+              <th>Property Tag</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
               <td>
-                <label>
-                  <span>Property Owner:</span>
-                </label>
+                <label>Property Owner:</label>
               </td>
+              <td>
+                <label>Organisation Number:</label>
+              </td>
+              <td>
+                <label>Property Tag:</label>
+              </td>
+            </tr>
+            <tr>
               <td>
                 <input
                   type="text"
@@ -64,26 +77,12 @@ function NewProperty() {
                   onChange={(e) => setPropertyOwner(e.target.value)}
                 />
               </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <span>Organisation Number:</span>
-                </label>
-              </td>
               <td>
                 <input
                   type="text"
                   value={organisationNumber}
                   onChange={(e) => setOrganisationNumber(e.target.value)}
                 />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <span>Property Tag:</span>
-                </label>
               </td>
               <td>
                 <input
@@ -93,12 +92,18 @@ function NewProperty() {
                 />
               </td>
             </tr>
-            <tr>
+            <tr className='table-head'>
               <td>
-                <label>
-                  <span>Property Address:</span>
-                </label>
+                <label>Property Address:</label>
               </td>
+              <td>
+                <label>Property Area:</label>
+              </td>
+              <td>
+                <label>Visiting Address:</label>
+              </td>
+            </tr>
+            <tr>
               <td>
                 <input
                   type="text"
@@ -106,26 +111,12 @@ function NewProperty() {
                   onChange={(e) => setPropertyAddress(e.target.value)}
                 />
               </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <span>Property Area:</span>
-                </label>
-              </td>
               <td>
                 <input
                   type="text"
                   value={propertyArea}
                   onChange={(e) => setPropertyArea(e.target.value)}
                 />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <span>Visiting Address:</span>
-                </label>
               </td>
               <td>
                 <input
@@ -137,10 +128,16 @@ function NewProperty() {
             </tr>
             <tr>
               <td>
-                <label>
-                  <span>Visiting Area:</span>
-                </label>
+                <label>Visiting Area:</label>
               </td>
+              <td>
+                <label>Contact Representative:</label>
+              </td>
+              <td>
+                <label>Phone Number:</label>
+              </td>
+            </tr>
+            <tr>
               <td>
                 <input
                   type="text"
@@ -148,26 +145,12 @@ function NewProperty() {
                   onChange={(e) => setVisitingArea(e.target.value)}
                 />
               </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <span>Contact Representative:</span>
-                </label>
-              </td>
               <td>
                 <input
                   type="text"
                   value={contactRep}
                   onChange={(e) => setContactRep(e.target.value)}
                 />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <span>Phone Number:</span>
-                </label>
               </td>
               <td>
                 <input
@@ -179,10 +162,11 @@ function NewProperty() {
             </tr>
             <tr>
               <td>
-                <label>
-                  <span>Email:</span>
-                </label>
+                <label>Email:</label>
               </td>
+              <td colSpan="2"></td> {/* Empty cell for alignment */}
+            </tr>
+            <tr>
               <td>
                 <input
                   type="email"
@@ -190,6 +174,7 @@ function NewProperty() {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </td>
+              <td colSpan="2"></td> {/* Empty cell for alignment */}
             </tr>
           </tbody>
         </table>
