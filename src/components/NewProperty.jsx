@@ -60,17 +60,6 @@ function NewProperty() {
           <tbody>
             <tr>
               <td>
-                <label>Property Owner:</label>
-              </td>
-              <td>
-                <label>Organisation Number:</label>
-              </td>
-              <td>
-                <label>Property Tag:</label>
-              </td>
-            </tr>
-            <tr>
-              <td>
                 <input
                   type="text"
                   value={propertyOwner}
@@ -92,7 +81,8 @@ function NewProperty() {
                 />
               </td>
             </tr>
-            <tr className='table-head'>
+            </tbody>
+            <tr>
               <td>
                 <label>Property Address:</label>
               </td>
@@ -103,6 +93,7 @@ function NewProperty() {
                 <label>Visiting Address:</label>
               </td>
             </tr>
+            <tbody>
             <tr>
               <td>
                 <input
