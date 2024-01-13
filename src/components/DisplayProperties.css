@@ -27,6 +27,24 @@ thead {
   color: #fff;
 }
 
+.centered-td {
+  padding-left: 30px;
+}
+
+.more-info-button {
+background-color: #c1d604;
+color: #34410d;
+font-weight: bold;
+border: none;
+height: 2rem;
+width: 5rem;
+}
+
+.more-info-button:hover {
+  background-color: #9ba25c;
+  cursor: pointer;
+}
+
 th,
 td {
   padding: 12px;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './DisplayProperties.css';
 
 function DisplayProperties() {
@@ -45,9 +46,10 @@ function DisplayProperties() {
           <table>
             <thead>
               <tr>
-                <th>Property Address</th>
-                <th>Property Owner</th>
+                <th>Property address</th>
+                <th>Property owner</th>
                 <th>Added to database</th>
+                <th>Additional data</th>
                 {/* Add more headers based on your data structure */}
               </tr>
             </thead>
@@ -56,22 +58,26 @@ function DisplayProperties() {
                 <tr key={property._id}>
                   <td>{property.propertyAddress}</td>
                   <td>{property.propertyOwner}</td>
-                  <td>{formatDate(property.date)}</td>
-                  {/* Add more cells based on your data structure */}
+                  <td className='centered-td'>{formatDate(property.date)}</td>
+                  <td className='centered-td'>
+                  <Link to={`/property/${property._id}`}>
+                    <button className='more-info-button'>Open</button>
+                    </Link>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
 
           <div className="pagination">
-  <button className="pagination-button" onClick={() => setPage(currentPage - 1)}>
-    {'<'}
-  </button>
-  <span className="current-page">PAGE {currentPage} OF {totalPages}</span>
-  <button className="pagination-button" onClick={() => setPage(currentPage + 1)}>
-    {'>'}
-  </button>
-</div>
+            <button className="pagination-button" onClick={() => setPage(currentPage - 1)}>
+              {'<'}
+            </button>
+            <span className="current-page">PAGE {currentPage} OF {totalPages}</span>
+            <button className="pagination-button" onClick={() => setPage(currentPage + 1)}>
+              {'>'}
+            </button>
+          </div>
         </>
       ) : (
         <p>No properties to display.</p>
