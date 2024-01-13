@@ -14,11 +14,21 @@ function NewProperty() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const navigate = useNavigate();
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+
+    if (!propertyOwner || !propertyAddress) {
+      setErrorMessage('Fill in required fields');
+      setTimeout(() => {
+        setErrorMessage('');
+      }, 5000);
+      return; 
+    }
+
     let result = await fetch('http://localhost:5000/register', {
       method: 'post',
       body: JSON.stringify({
@@ -52,7 +62,7 @@ function NewProperty() {
 
   return (
    <div className="App">
-      <h1>Register Property</h1>
+      <h1>Register Property</h1>        {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form>
       <table>
           <tbody>
@@ -182,8 +192,10 @@ function NewProperty() {
             </tr>
           </tbody>
         </table>
+        
         <br />
         <div className='button-container'>
+          
           {!successMessage ? (
             <button className="submit-button" type="submit" onClick={handleOnSubmit}>
               Submit
@@ -191,7 +203,9 @@ function NewProperty() {
           ) : (
             <p className="success-message">Saved successfully</p>
           )}
+          
         </div>
+        
       </form>
     </div>
   );

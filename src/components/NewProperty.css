@@ -81,3 +81,15 @@ p {
   font-size: 35px;
   margin: 0;
 }
+
+.error-message {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 0, 0, 0);
+  color: rgb(240, 60, 60);
+  font-size: 25px;
+  padding: 10px;
+  z-index: 1000;
+}
