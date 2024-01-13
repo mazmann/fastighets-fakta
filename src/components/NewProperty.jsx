@@ -51,6 +51,15 @@ function NewProperty() {
     console.warn(result);
     if (result) {
       setSuccessMessage(true);
+      setPropertyOwner('');
+      setOrganisationNumber('');
+      setPropertyTag('');
+      setPropertyAddress('');
+      setPropertyArea('');
+      setVisitingAddress('');
+      setVisitingArea('');
+      setContactRep('');
+      setPhoneNumber('');
       setEmail('');
       navigate('/'); // Navigate to the display route if needed
 
