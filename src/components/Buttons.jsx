@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import './Buttons.css'
 
-export const EditPropertyData = () => {
+export const EditPropertyData = ({ id }) => {
     return (
+        <Link to={`/edit/${id}`}>
         <button className='edit-button'>Edit</button>
+        </Link>
     );
 };
 
