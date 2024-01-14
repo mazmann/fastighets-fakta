@@ -1,25 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './DisplayProperties.css';
+import PropertyFetcher from '../api/PropertyFetcher';
 
 function DisplayProperties() {
   const [properties, setProperties] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    // Fetch data from the server when the component mounts
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:5000/properties');
-        const data = await response.json();
-        setProperties(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []); // Run the effect only once when the component mounts
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -41,6 +27,7 @@ function DisplayProperties() {
   return (
     <div className='App-display'>
       <h2>Display Properties</h2>
+      <PropertyFetcher setProperties={setProperties} />
       {properties.length > 0 ? (
         <>
           <table>
