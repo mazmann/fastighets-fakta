@@ -10,7 +10,6 @@ export const EditPropertyData = ({ id }) => {
     );
 };
 
-
 export const BackToDisplay = () => {
     return (
         <Link to={`/display`}>
