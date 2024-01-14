@@ -63,6 +63,10 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    secondDate: {
+        type: Date,
+        default: null, // or specify a default value that makes sense for your use case
+    },
 });
 
 const User = mongoose.model('User', UserSchema, 'fastighets_data');
@@ -103,6 +107,8 @@ app.get('/properties/:propertyId', async (req, res) => {
     try {
       const propertyId = req.params.propertyId;
       const updatedData = req.body;
+
+      updatedData.secondDate = new Date();
       
       const updatedProperty = await User.findByIdAndUpdate(propertyId, updatedData, { new: true });
   

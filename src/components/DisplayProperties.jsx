@@ -35,7 +35,7 @@ function DisplayProperties() {
               <tr>
                 <th>Property address</th>
                 <th>Property owner</th>
-                <th>Added to database</th>
+                <th>Database updated</th>
                 <th>Additional data</th>
                 {/* Add more headers based on your data structure */}
               </tr>
@@ -45,10 +45,14 @@ function DisplayProperties() {
                 <tr key={property._id}>
                   <td>{property.propertyAddress}</td>
                   <td>{property.propertyOwner}</td>
-                  <td className='centered-td'>{formatDate(property.date)}</td>
                   <td className='centered-td'>
-                  <Link to={`/property/${property._id}`}>
-                    <button className='more-info-button'>Open</button>
+                    {(property.secondDate !== null && property.secondDate !== undefined) ? formatDate(property.secondDate) : formatDate(property.date)}
+                  </td>
+                  <td className='centered-td'>
+                    <Link to={`/property/${property._id}`}>
+                      <button className='more-info-button'>
+                        Open
+                      </button>
                     </Link>
                   </td>
                 </tr>
