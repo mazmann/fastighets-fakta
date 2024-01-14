@@ -53,6 +53,10 @@ td {
   min-height: 46px;
 }
 
+label {
+  font-weight: bold;
+}
+
 tbody tr:hover {
   background-color: #f0f0f0;
 }

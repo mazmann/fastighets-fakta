@@ -35,7 +35,7 @@ function DisplayProperties() {
               <tr>
                 <th>Property address</th>
                 <th>Property owner</th>
-                <th>Database updated</th>
+                <th>Last updated data</th>
                 <th>Additional data</th>
                 {/* Add more headers based on your data structure */}
               </tr>
