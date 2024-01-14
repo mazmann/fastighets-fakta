@@ -83,6 +83,22 @@ app.get('/properties', async (req, resp) => {
     }
 });
 
+app.get('/properties/:propertyId', async (req, res) => {
+    try {
+      const propertyId = req.params.propertyId;
+      const property = await User.findById(propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ error: 'Property not found' });
+      }
+  
+      res.json(property);
+    } catch (e) {
+      console.error('Error:', e);
+      res.status(500).json({ error: 'Something went wrong' });
+    }
+  });
+
 app.post('/register', async (req, resp) => {
     try {
         const user = new User(req.body);
