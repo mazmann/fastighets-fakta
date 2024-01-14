@@ -32,7 +32,7 @@ thead {
 }
 
 .more-info-button {
-background-color: #c1d604;
+background-color: #fed017;
 color: #34410d;
 font-weight: bold;
 border: none;
@@ -41,7 +41,7 @@ width: 5rem;
 }
 
 .more-info-button:hover {
-  background-color: #9ba25c;
+  /* background-color: #9ba25c; */
   cursor: pointer;
 }
 
