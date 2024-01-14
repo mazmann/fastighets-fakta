@@ -179,7 +179,7 @@ const EditProperty = () => {
         </table>
         <div className='data-button-container'>
           <BackToData id={propertyId} />
-          <SaveUpdatedData handleUpdate={handleUpdate} />
+          <SaveUpdatedData id={propertyId} handleUpdate={handleUpdate} />
         </div>
       </form>
 

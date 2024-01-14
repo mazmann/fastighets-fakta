@@ -13,11 +13,13 @@ export const BackToData = ({ id }) => {
     );
 };
 
-export const SaveUpdatedData = ({ handleUpdate }) => {
+export const SaveUpdatedData = ({ handleUpdate, id }) => {
     return (
-        <button className='save-edited-data' type="button" onClick={handleUpdate}>
-            Save
-        </button>
+        <Link to={`/property/${id}`}>
+            <button className='save-edited-data' type="button" onClick={handleUpdate}>
+                Save
+            </button>
+        </Link>
 
     );
 };
