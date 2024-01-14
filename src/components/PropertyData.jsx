@@ -106,6 +106,10 @@ const PropertyData = () => {
       </tr>
     </tbody>
   </table>
+  <div className='data-button-container'>
+    <button className='edit-button'>Edit</button>
+    <button className='back-to-display-button'>Back</button>
+  </div>
         </form>
       ) : (
         <p>Loading...</p>

@@ -6,3 +6,28 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.data-button-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.edit-button {
+    background-color: #c1d604;
+    color: #34410d;
+    font-weight: bold;
+    border: none;
+    height: 2rem;
+    width: 6rem;
+}
+
+.back-to-display-button {
+    background-color: #c1d604;
+    color: #34410d;
+    font-weight: bold;
+    border: none;
+    height: 2rem;
+    width: 6rem;
+}

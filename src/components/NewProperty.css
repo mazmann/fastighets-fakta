@@ -62,14 +62,13 @@ input {
 }
 
 .submit-button {
-  padding: 12px;
-  background-color: #4caf50;
-  color: white;
-  font-size: 30px;
+  /* padding: 12px; */
+  background-color: #c1d604;
+  color: #34410d;
+  font-weight: bold;
   border: none;
-  cursor: pointer;
-  /* margin-top: 20px; */
-  width: 10rem;
+  height: 2rem;
+  width: 6rem;
 }
 
 .submit-button:hover {
