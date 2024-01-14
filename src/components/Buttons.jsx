@@ -2,10 +2,32 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import './Buttons.css'
 
+
+export const BackToData = ({ id }) => {
+    return (
+        <Link to={`/property/${id}`}>
+            <button className='back-to-display-button'>
+                Back
+            </button>
+        </Link>
+    );
+};
+
+export const SaveUpdatedData = ({ handleUpdate }) => {
+    return (
+        <button className='save-edited-data' type="button" onClick={handleUpdate}>
+            Save
+        </button>
+
+    );
+};
+
 export const EditPropertyData = ({ id }) => {
     return (
         <Link to={`/edit/${id}`}>
-        <button className='edit-button'>Edit</button>
+            <button className='edit-button'>
+                Edit
+            </button>
         </Link>
     );
 };

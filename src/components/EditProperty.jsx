@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { fetchDataById, updateData } from '../api/EditDataArray'; // Import your API functions
+import { fetchDataById, updateData } from '../api/EditDataArray'; 
+import { SaveUpdatedData, BackToData } from './Buttons';
 import './EditProperty.css'
 
-// Import necessary dependencies and functions
+
 
 const EditProperty = () => {
   const { propertyId } = useParams();
-  const [property, setProperty] = useState({});
+  // const [property, setProperty] = useState({});
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchDataById(propertyId);
-        setProperty(data);
+        // setProperty(data);
         setFormData(data);
       } catch (error) {
         console.error('Error fetching data by ID:', error);
@@ -31,7 +31,6 @@ const EditProperty = () => {
       // Optionally, redirect to the display page or handle success in another way
     } catch (error) {
       console.error('Error updating data:', error);
-      // Handle errors more gracefully
     }
   };
 
@@ -179,13 +178,8 @@ const EditProperty = () => {
           </tbody>
         </table>
         <div className='data-button-container'>
-        <Link to={`/property/${property._id}`}>
-            <button className='back-to-display-button'>Back</button>
-          </Link>
-          <button className='save-edited-data' type="button" onClick={handleUpdate}>
-            Save
-          </button>
-
+          <BackToData id={propertyId} />
+          <SaveUpdatedData handleUpdate={handleUpdate} />
         </div>
       </form>
 
