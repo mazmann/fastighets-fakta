@@ -41,13 +41,13 @@ const PropertyData = () => {
       </tr>
       <tr>
         <td>
-          <p>{property.propertyOwner}</p>
+          {property.propertyOwner || 'NO DATA'}
         </td>
         <td>
-          <p>{property.organisationNumber}</p>
+          {property.organisationNumber || 'NO DATA'}
         </td>
         <td>
-          <p>{property.propertyTag}</p>
+          {property.propertyTag || 'NO DATA'}
         </td>
       </tr>
       <tr>
@@ -63,13 +63,13 @@ const PropertyData = () => {
       </tr>
       <tr>
         <td>
-          <p>{property.propertyAddress}</p>
+          {property.propertyAddress || 'NO DATA'}
         </td>
         <td>
-          <p>{property.propertyArea}</p>
+          {property.propertyArea || 'NO DATA'}
         </td>
         <td>
-          <p>{property.visitingAddress}</p>
+          {property.visitingAddress || 'NO DATA'}
         </td>
       </tr>
       <tr>
@@ -85,13 +85,13 @@ const PropertyData = () => {
       </tr>
       <tr>
         <td>
-          <p>{property.visitingArea}</p>
+          {property.visitingArea || 'NO DATA'}
         </td>
         <td>
-          <p>{property.contactRep}</p>
+          {property.contactRep || 'NO DATA'}
         </td>
         <td>
-          <p>{property.phoneNumber}</p>
+          {property.phoneNumber || 'NO DATA'}
         </td>
       </tr>
       <tr>
@@ -101,7 +101,7 @@ const PropertyData = () => {
       </tr>
       <tr>
         <td>
-          <p>{property.email}</p>
+          {property.email || 'NO DATA'}
         </td>
       </tr>
     </tbody>
