@@ -53,8 +53,9 @@ td {
   min-height: 46px;
 }
 
+
 label {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 tbody tr:hover {
