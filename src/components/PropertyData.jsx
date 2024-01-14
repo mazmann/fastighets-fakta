@@ -109,10 +109,10 @@ const PropertyData = () => {
             </tbody>
           </table>
           <div className='data-button-container'>
+            <BackToDisplay />
             <Link to={`/edit/${property._id}`}>
               <EditPropertyData />
             </Link>
-            <BackToDisplay />
           </div>
         </form>
       ) : (

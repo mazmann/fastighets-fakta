@@ -25,3 +25,17 @@
     background-color: #9ba25c;
     cursor: pointer;
   }
+
+  .save-edited-data {
+    background-color: #c1d604;
+    color: #34410d;
+    font-weight: bold;
+    border: none;
+    height: 2rem;
+    width: 6rem;
+  }
+
+  .save-edited-data:hover {
+    background-color: #9ba25c;
+    cursor: pointer;
+  }

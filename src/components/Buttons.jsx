@@ -1,6 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './Buttons.css'
-import { useNavigate } from 'react-router-dom';
 
 export const EditPropertyData = () => {
     return (
@@ -8,17 +8,18 @@ export const EditPropertyData = () => {
     );
 };
 
+
 export const BackToDisplay = () => {
-    const navigate = useNavigate();
-    const handleBackToDisplay = () => {
-        navigate('/display');
-    };
     return (
-        <button className='back-to-display-button' onClick={handleBackToDisplay}>
-            Back
-        </button>
+        <Link to={`/display`}>
+            <button className='back-to-display-button'>
+                Back
+            </button>
+        </Link>
     );
 };
+
+
 
 
 

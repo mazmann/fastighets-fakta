@@ -7,50 +7,49 @@ import './EditProperty.css'
 // Import necessary dependencies and functions
 
 const EditProperty = () => {
-    const { propertyId } = useParams();
-    const [formData, setFormData] = useState({});
-  
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const data = await fetchDataById(propertyId);
-          setFormData(data);
-        } catch (error) {
-          console.error('Error fetching data by ID:', error);
-        }
-      };
-  
-      fetchData();
-    }, [propertyId]);
-  
-    const handleUpdate = async () => {
+  const { propertyId } = useParams();
+  const [property, setProperty] = useState({});
+  const [formData, setFormData] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
       try {
-        await updateData(propertyId, formData);
-        // Optionally, redirect to the display page or handle success in another way
+        const data = await fetchDataById(propertyId);
+        setProperty(data);
+        setFormData(data);
       } catch (error) {
-        console.error('Error updating data:', error);
-        // Handle errors more gracefully
+        console.error('Error fetching data by ID:', error);
       }
     };
-  
-    const handleChange = (e) => {
-      setFormData({
-        ...formData,
-        [e.target.name]: e.target.value,
-      });
-    };
-  
-    return (
-      <div className='App-edit'>
-        <h2>Edit Property</h2>
-        <form>
+
+    fetchData();
+  }, [propertyId]);
+
+  const handleUpdate = async () => {
+    try {
+      await updateData(propertyId, formData);
+      // Optionally, redirect to the display page or handle success in another way
+    } catch (error) {
+      console.error('Error updating data:', error);
+      // Handle errors more gracefully
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  return (
+    <div className='App-edit'>
+      <h2>Edit Property</h2>
+      <form>
         <table>
           <tbody>
             <tr>
               <td>
-              <div className='required-field-container'>
-              <span className='required-field'>*</span>
-              </div>
                 <label>Property Owner:</label>
               </td>
               <td>
@@ -64,6 +63,7 @@ const EditProperty = () => {
               <td>
                 <input
                   type="text"
+                  name="propertyOwner"
                   value={formData.propertyOwner || ''}
                   onChange={handleChange}
                 />
@@ -71,6 +71,7 @@ const EditProperty = () => {
               <td>
                 <input
                   type="text"
+                  name="organisationNumber"
                   value={formData.organisationNumber || ''}
                   onChange={handleChange}
                 />
@@ -78,6 +79,7 @@ const EditProperty = () => {
               <td>
                 <input
                   type="text"
+                  name="propertyTag"
                   value={formData.propertyTag || ''}
                   onChange={handleChange}
                 />
@@ -85,10 +87,7 @@ const EditProperty = () => {
             </tr>
             <tr>
               <td>
-              <div className='required-field-container'>
-              <span className='required-field'>*</span>
-              </div>
-              <label>Property Address:</label>
+                <label>Property Address:</label>
               </td>
               <td>
                 <label>Property Area:</label>
@@ -101,6 +100,7 @@ const EditProperty = () => {
               <td>
                 <input
                   type="text"
+                  name="propertyAddress"
                   value={formData.propertyAddress || ''}
                   onChange={handleChange}
                 />
@@ -108,6 +108,7 @@ const EditProperty = () => {
               <td>
                 <input
                   type="text"
+                  name="propertyArea"
                   value={formData.propertyArea || ''}
                   onChange={handleChange}
                 />
@@ -115,6 +116,7 @@ const EditProperty = () => {
               <td>
                 <input
                   type="text"
+                  name="visitingAddress"
                   value={formData.visitingAddress || ''}
                   onChange={handleChange}
                 />
@@ -135,6 +137,7 @@ const EditProperty = () => {
               <td>
                 <input
                   type="text"
+                  name="visitingArea"
                   value={formData.visitingArea || ''}
                   onChange={handleChange}
                 />
@@ -142,6 +145,7 @@ const EditProperty = () => {
               <td>
                 <input
                   type="text"
+                  name="contactRep"
                   value={formData.contactRep || ''}
                   onChange={handleChange}
                 />
@@ -149,6 +153,7 @@ const EditProperty = () => {
               <td>
                 <input
                   type="text"
+                  name="phoneNumber"
                   value={formData.phoneNumber || ''}
                   onChange={handleChange}
                 />
@@ -164,6 +169,7 @@ const EditProperty = () => {
               <td>
                 <input
                   type="email"
+                  name="email"
                   value={formData.email || ''}
                   onChange={handleChange}
                 />
@@ -172,37 +178,21 @@ const EditProperty = () => {
             </tr>
           </tbody>
         </table>
-          {/* Render your input fields */}
-          <label>Property Owner:</label>
-          <input
-            type="text"
-            name="propertyOwner"
-            value={formData.propertyOwner || ''}
-            onChange={handleChange}
-          />
-  
-          <label>Organisation Number:</label>
-          <input
-            type="text"
-            name="organisationNumber"
-            value={formData.organisationNumber || ''}
-            onChange={handleChange}
-          />
-  
-          {/* Add other input fields as needed */}
-  
-          {/* Render your submit button */}
-          <button type="button" onClick={handleUpdate}>
-            Update Property
+        <div className='data-button-container'>
+        <Link to={`/property/${property._id}`}>
+            <button className='back-to-display-button'>Back</button>
+          </Link>
+          <button className='save-edited-data' type="button" onClick={handleUpdate}>
+            Save
           </button>
-        </form>
-  
-        <Link to={`/display`}>
-          <button className='back-to-display-button'>Back</button>
-        </Link>
-      </div>
-    );
-  };
-  
-  export default EditProperty;
+
+        </div>
+      </form>
+
+
+    </div>
+  );
+};
+
+export default EditProperty;
 
