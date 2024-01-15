@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchDataById, updateData } from '../api/EditDataArray'; 
+import { fetchDataById, updateData } from '../api/EditDataArray';
 import { SaveUpdatedData, BackToData } from './Buttons';
 import './EditProperty.css'
 

@@ -55,27 +55,28 @@ export const BackToDisplay = () => {
 export const MoreInfoButton = ({ id }) => {
     return (
         <Link to={`/property/${id}`}>
-        <button className='more-info-button'>
-          Open
-        </button>
-      </Link>
+            <button className='more-info-button'>
+                Open
+            </button>
+        </Link>
     );
 };
 
 export const PaginationButtons = ({ currentPage, totalPages, setPage }) => {
     return (
         <div className="pagination">
-        <button className="pagination-button" onClick={() => setPage(currentPage - 1)}>
-          {'<'}
-        </button>
-        <span className="current-page">PAGE {currentPage} OF {totalPages}</span>
-        <button className="pagination-button" onClick={() => setPage(currentPage + 1)}>
-          {'>'}
-        </button>
-      </div>
+            <button className="pagination-button" onClick={() => setPage(currentPage - 1)}>
+                {'<'}
+            </button>
+            <span className="current-page">PAGE {currentPage} OF {totalPages}</span>
+            <button className="pagination-button" onClick={() => setPage(currentPage + 1)}>
+                {'>'}
+            </button>
+        </div>
     );
 };
 
+//////////// NEW PROPERTY
 
 
 
