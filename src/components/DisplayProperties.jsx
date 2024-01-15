@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './DisplayProperties.css';
+import { MoreInfoButton, PaginationButtons } from './Buttons';
 import PropertyFetcher from '../api/PropertyFetcher';
 
 function DisplayProperties() {
@@ -49,26 +49,18 @@ function DisplayProperties() {
                     {(property.secondDate !== null && property.secondDate !== undefined) ? formatDate(property.secondDate) : formatDate(property.date)}
                   </td>
                   <td className='centered-td'>
-                    <Link to={`/property/${property._id}`}>
-                      <button className='more-info-button'>
-                        Open
-                      </button>
-                    </Link>
+                    <MoreInfoButton id={property._id} />
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
 
-          <div className="pagination">
-            <button className="pagination-button" onClick={() => setPage(currentPage - 1)}>
-              {'<'}
-            </button>
-            <span className="current-page">PAGE {currentPage} OF {totalPages}</span>
-            <button className="pagination-button" onClick={() => setPage(currentPage + 1)}>
-              {'>'}
-            </button>
-          </div>
+          <PaginationButtons
+            currentPage={currentPage}
+            totalPages={totalPages}
+            setPage={setPage}
+          />
         </>
       ) : (
         <p>No properties to display.</p>

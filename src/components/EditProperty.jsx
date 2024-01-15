@@ -8,14 +8,12 @@ import './EditProperty.css'
 
 const EditProperty = () => {
   const { propertyId } = useParams();
-  // const [property, setProperty] = useState({});
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchDataById(propertyId);
-        // setProperty(data);
         setFormData(data);
       } catch (error) {
         console.error('Error fetching data by ID:', error);
