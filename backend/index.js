@@ -129,7 +129,7 @@ app.post('/register', async (req, resp) => {
         let result = await user.save();
         result = result.toObject();
         if (result) {
-            delete result.password; // Assuming there's a password field that you want to exclude
+            delete result.password; 
             resp.json(result);
             console.log(result);
         } else {
