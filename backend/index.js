@@ -65,7 +65,7 @@ const UserSchema = new mongoose.Schema({
     },
     secondDate: {
         type: Date,
-        default: null, // or specify a default value that makes sense for your use case
+        default: null, 
     },
 });
 
