@@ -1,40 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto+Slab:wght@500&display=swap');
 
-/* Apply styles only to elements with the 'navbar' class */
 .navbar {
     text-align: center;
   }
   
-  /* Style the navbar list */
   .navbar-list {
-    background-color: #333; /* Change the background color as needed */
     padding: 10px 0;
   }
   
-  /* Style the navbar items */
   .navbar-item {
     display: inline;
-    margin-right: 20px; /* Adjust spacing between navbar items */
+    margin-right: 40px; 
+  }
+
+  .navbar-item:hover {
+    border-bottom: 3px solid rgb(5, 5, 5); 
+    padding-bottom: 5px; 
   }
   
-  /* Style the navbar links */
+
   .navbar-link {
     text-decoration: none;
-    color: #fff; /* Set the font color */
-    font-size: 16px;
-     /* Set the font size */
+    font-family: 'Fjalla One', sans-serif;
+    color: #fff; 
+    font-size: 28px;
   }
   
-  /* Style the navbar links on hover */
+
   .navbar-link:hover {
-    color: #ffcc00; /* Set the color on hover */
+    color: #ffcc00; 
   }
   
-  /* Remove dots for list items */
+
   .navbar-item {
     list-style-type: none;
   }
   
   /* Remove purple marking after being clicked */
   .navbar-link:visited {
-    color: #fff; /* Set the font color for visited links */
+    color: #050505; /* Set the font color for visited links */
   }

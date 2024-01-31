@@ -1,4 +1,4 @@
-/* DisplayProperties.css */
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto+Slab:wght@500&display=swap');
 
 .App-display {
   max-width: 800px;
@@ -10,6 +10,7 @@
 }
 
 h2 {
+  
   color: #333;
   font-size: 2em;
   margin: 21.44px;
