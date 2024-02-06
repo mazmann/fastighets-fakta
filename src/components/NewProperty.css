@@ -15,6 +15,7 @@ form {
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 label {
@@ -42,7 +43,7 @@ label {
 
 input {
   width: 100%;
-  padding: 6px;
+  padding: 4px;
 }
 
 .button-container {
@@ -66,10 +67,10 @@ input {
   cursor: pointer;
 }
 
-p {
+/* p {
   font-size: 35px;
   margin: 0;
-}
+} */
 
 .error-message {
   position: absolute;
