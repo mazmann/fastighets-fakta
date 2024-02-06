@@ -26,7 +26,7 @@ function DisplayProperties() {
 
   return (
     <div className='App'>
-      <h2>Display Properties</h2>
+      <h4>Display Properties</h4>
       <PropertyFetcher setProperties={setProperties} />
       {properties.length > 0 ? (
         <>

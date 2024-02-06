@@ -41,7 +41,7 @@ const EditProperty = () => {
 
   return (
     <div className='App'>
-      <h2>Edit Property</h2>
+      <h3>Edit Property</h3>
       <form>
         <table>
           <tbody>

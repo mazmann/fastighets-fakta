@@ -9,6 +9,13 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+h1, h2, h3, h4, h5 {
+  color: #333;
+  font-size: 2em;
+  margin: 21.44px;
+  margin-left: 0;
+}
+
 body {
   overflow-y: scroll; /* Always show vertical scrollbar */
 }

@@ -15,6 +15,9 @@ function Navigation() {
         <li className="navbar-item">
           <Link to="/register" className="navbar-link">REGISTER</Link>
         </li>
+        <li className="navbar-item">
+          <Link to="/owner" className="navbar-link">PROPERTY OWNER</Link>
+        </li>
       </ul>
     </nav>
   );
