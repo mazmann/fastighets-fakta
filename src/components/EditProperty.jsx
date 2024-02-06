@@ -40,7 +40,7 @@ const EditProperty = () => {
   };
 
   return (
-    <div className='App-edit'>
+    <div className='App'>
       <h2>Edit Property</h2>
       <form>
         <table>

@@ -23,7 +23,7 @@ const PropertyData = () => {
   }, [propertyId]);
 
   return (
-    <div className='App-display-more'>
+    <div className='App'>
       <h2>Property Details</h2>
       {property ? (
         <form>
