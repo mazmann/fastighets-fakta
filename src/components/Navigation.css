@@ -1,42 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto+Slab:wght@500&display=swap');
 
 .navbar {
-    text-align: center;
-  }
-  
-  .navbar-list {
-    padding: 10px 0;
-  }
-  
-  .navbar-item {
-    display: inline;
-    margin-right: 40px; 
-  }
+  text-align: center;
+}
 
-  .navbar-item:hover {
-    border-bottom: 3px solid rgb(5, 5, 5); 
-    padding-bottom: 5px; 
-  }
-  
+.navbar-list {
+  padding: 10px 0;
+}
 
-  .navbar-link {
-    text-decoration: none;
-    font-family: 'Fjalla One', sans-serif;
-    color: #fff; 
-    font-size: 28px;
-  }
-  
+.navbar-item {
+  display: inline;
+  margin-right: 40px;
+}
 
-  .navbar-link:hover {
-    color: #ffcc00; 
-  }
-  
+.navbar-item:hover {
+  border-bottom: 3px solid rgb(5, 5, 5);
+  padding-bottom: 5px;
+}
 
-  .navbar-item {
-    list-style-type: none;
-  }
-  
-  /* Remove purple marking after being clicked */
-  .navbar-link:visited {
-    color: #050505; /* Set the font color for visited links */
-  }
+
+.navbar-link {
+  text-decoration: none;
+  font-family: 'Fjalla One', sans-serif;
+  color: #fff;
+  font-size: 28px;
+}
+
+.navbar-link:hover {
+  color: #ffcc00;
+}
+
+.navbar-item {
+  list-style-type: none;
+}
+
+.navbar-link:visited {
+  color: #050505;
+}

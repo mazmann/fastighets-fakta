@@ -1,60 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto+Slab:wght@500&display=swap');
 
-/* h2 {
-  color: #333;
-  font-size: 2em;
-  margin: 21.44px;
-  margin-left: 0;
-} */
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-thead {
-  background-color: #333;
-  color: #fff;
-}
-
 .centered-td {
   padding-left: 30px;
 }
 
 .more-info-button {
-background-color: #fed017;
-color: #34410d;
-font-weight: bold;
-border: none;
-height: 2rem;
-width: 5rem;
+  background-color: #fed017;
+  color: #34410d;
+  font-weight: bold;
+  border: none;
+  height: 2rem;
+  width: 5rem;
 }
 
 .more-info-button:hover {
   /* background-color: #9ba25c; */
   cursor: pointer;
-}
-
-th,
-td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  overflow: hidden;
-}
-
-
-label {
-  font-weight: 600;
-}
-
-tbody tr:hover {
-  background-color: #f0f0f0;
-}
-
-p {
-  color: #666;
 }
 
 .pagination {

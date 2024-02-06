@@ -1,6 +1,8 @@
+body {
+  overflow-y: scroll;
+}
 
-
-.App, .App-display {
+.App {
   max-width: 800px;
   margin: auto;
   padding: 20px;
@@ -9,13 +11,50 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #333;
   font-size: 2em;
   margin: 21.44px;
   margin-left: 0;
 }
 
-body {
-  overflow-y: scroll; /* Always show vertical scrollbar */
+thead {
+  background-color: #333;
+  color: #fff;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr {
+  height: 50px; /* Set a fixed height */
+}
+
+tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+label {
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 2px;
+  font-size: 16px;
 }

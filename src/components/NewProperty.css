@@ -1,35 +1,10 @@
-
-h1 {
-  color: #333;
-}
-
-form {
-  margin-top: 20px;
-}
-
-.label-input-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-
-label {
-  font-size: 16px;
-  z-index: 1;
-  position: relative;
-}
-
 .required-field-container {
   position: relative;
   padding: 0;
   margin-top: -15px;
   margin-left: -20px;
   height: 10px;
+  z-index: 999;
 }
 
 
@@ -37,19 +12,13 @@ label {
   color: red;
   font-size: 40px;
   font-weight: bold;
-  z-index: 2;
-
-}
-
-input {
-  width: 100%;
-  padding: 4px;
+  z-index: 999;
 }
 
 .button-container {
   padding: 12px;
   display: flex;
- justify-content: center;
+  justify-content: center;
 }
 
 .submit-button {
@@ -66,11 +35,6 @@ input {
   background-color: #9ba25c;
   cursor: pointer;
 }
-
-/* p {
-  font-size: 35px;
-  margin: 0;
-} */
 
 .error-message {
   position: absolute;
