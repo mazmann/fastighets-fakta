@@ -22,8 +22,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 10px;
 }
 
 .pagination-button {
@@ -32,7 +36,6 @@
   border: none;
   margin: 0 5px;
   cursor: pointer;
-  /* border-radius: 4px; */
   font-size: 21px;
   font-weight: bold;
   height: 28px;
