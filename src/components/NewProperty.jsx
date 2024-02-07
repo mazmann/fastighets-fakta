@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './NewProperty.css';
 
 function NewProperty() {
@@ -16,17 +15,16 @@ function NewProperty() {
   const [successMessage, setSuccessMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
 
-  const navigate = useNavigate();
-
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+
 
     if (!propertyOwner || !propertyAddress) {
       setErrorMessage('Fill in required fields');
       setTimeout(() => {
         setErrorMessage('');
       }, 5000);
-      return; 
+      return;
     }
 
     let result = await fetch('http://localhost:5000/register', {
@@ -61,7 +59,6 @@ function NewProperty() {
       setContactRep('');
       setPhoneNumber('');
       setEmail('');
-      navigate('/'); // Navigate to the display route if needed
 
       setTimeout(() => {
         setSuccessMessage(false);
@@ -70,16 +67,16 @@ function NewProperty() {
   };
 
   return (
-   <div className="App">
+    <div className="App">
       <h1>Register Property</h1>        {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form>
-      <table>
+        <table>
           <tbody>
             <tr>
               <td>
-              <div className='required-field-container'>
-              <span className='required-field'>*</span>
-              </div>
+                <div className='required-field-container'>
+                  <span className='required-field'>*</span>
+                </div>
                 <label>Property Owner:</label>
               </td>
               <td>
@@ -114,10 +111,10 @@ function NewProperty() {
             </tr>
             <tr>
               <td>
-              <div className='required-field-container'>
-              <span className='required-field'>*</span>
-              </div>
-              <label>Property Address:</label>
+                <div className='required-field-container'>
+                  <span className='required-field'>*</span>
+                </div>
+                <label>Property Address:</label>
               </td>
               <td>
                 <label>Property Area:</label>
@@ -201,10 +198,10 @@ function NewProperty() {
             </tr>
           </tbody>
         </table>
-        
+
         <br />
         <div className='button-container'>
-          
+
           {!successMessage ? (
             <button className="submit-button" type="submit" onClick={handleOnSubmit}>
               Submit
@@ -212,9 +209,9 @@ function NewProperty() {
           ) : (
             <p className="success-message">Saved successfully</p>
           )}
-          
+
         </div>
-        
+
       </form>
     </div>
   );
