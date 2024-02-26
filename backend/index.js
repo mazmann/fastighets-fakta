@@ -1,15 +1,11 @@
-const mongoose = require('mongoose');
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
 
 const app = express();
 const port = 5000;
 
-mongoose.connect('mongodb://localhost:27017/', {
-    dbName: 'fastighets_info',
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+await mongoose.connect("mongodb://127.0.0.1:27017/property_data")
     .then(() => {
         console.log('Connected to database');
     })
@@ -17,59 +13,65 @@ mongoose.connect('mongodb://localhost:27017/', {
         console.error('Error connecting to MongoDB:', err);
     });
 
-// Schema for users of app
-const UserSchema = new mongoose.Schema({
-    propertyOwner: {
-        type: String,
-        required: true,
-    },
-    organisationNumber: {
-        type: String,
-        required: false,
-    },
-    propertyTag: {
-        type: String,
-        required: false,
-    },
-    propertyAddress: {
-        type: String,
-        required: true,
-    },
-    propertyArea: {
-        type: String,
-        required: false,
-    },
-    visitingAddress: {
-        type: String,
-        required: false,
-    },
-    visitingArea: {
-        type: String,
-        required: false,
-    },
-    contactRep: {
-        type: String,
-        required: false,
-    },
-    phoneNumber: {
-        type: String,
-        required: false,
-    },
-    email: {
-        type: String,
-        required: false,
-    },
-    date: {
-        type: Date,
-        default: Date.now,
-    },
-    secondDate: {
-        type: Date,
-        default: null, 
-    },
+
+const propertySchema = new mongoose.Schema({
+        propertyOwner: {
+            type: String,
+            required: true,
+        },
+        organisationNumber: {
+            type: String,
+        },
+        propertyTag: {
+            type: String,
+        },
+        propertyAddress: {
+            type: String,
+            required: true,
+        },
+        propertyArea: {
+            type: String,
+        },
+        visitingAddress: {
+            type: String,
+        },
+        visitingArea: {
+            type: String,
+        },
+        contactRep: {
+            type: String,
+        },
+        phoneNumber: {
+            type: String,
+        },
+        email: {
+            type: String,
+        },
+        date: {
+            type: Date,
+            default: Date.now,
+        },
+        secondDate: {
+            type: Date,
+            default: null,
+        },
 });
 
-const User = mongoose.model('User', UserSchema, 'fastighets_data');
+const property = mongoose.model('property', propertySchema);
+
+const insertedProperty = new property({
+        propertyOwner: "Nordahl Fastigheter",
+        organisationNumber: "",
+        propertyTag: "Kolonisten 3",
+        propertyAddress: "Järnvägsgatan 62",
+        propertyArea: "Sundbyberg",
+        visitingAddress: "",
+        visitingArea: "",
+        contactRep: "Bengt Mikael Nordahl",
+        phoneNumber: "087957801",
+});
+
+await insertedProperty.save();
 
 // For backend and express
 app.use(express.json());
@@ -79,7 +81,7 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 
 app.get('/properties', async (req, resp) => {
     try {
-        const properties = await User.find({}, '-password'); 
+        const properties = await property.find({});
         resp.json(properties);
     } catch (e) {
         console.error('Error:', e);
@@ -89,51 +91,50 @@ app.get('/properties', async (req, resp) => {
 
 app.get('/properties/:propertyId', async (req, res) => {
     try {
-      const propertyId = req.params.propertyId;
-      const property = await User.findById(propertyId);
-      
-      if (!property) {
-        return res.status(404).json({ error: 'Property not found' });
-      }
-  
-      res.json(property);
-    } catch (e) {
-      console.error('Error:', e);
-      res.status(500).json({ error: 'Something went wrong' });
-    }
-  });
+        const propertyId = req.params.propertyId;
+        const propertyData = await property.findById(propertyId);
 
-  app.put('/properties/:propertyId', async (req, res) => {
+        if (!propertyData) {
+            return res.status(404).json({ error: 'Property not found' });
+        }
+
+        res.json(propertyData);
+    } catch (e) {
+        console.error('Error:', e);
+        res.status(500).json({ error: 'Something went wrong' });
+    }
+});
+
+app.put('/properties/:propertyId', async (req, res) => {
     try {
-      const propertyId = req.params.propertyId;
-      const updatedData = req.body;
+        const propertyId = req.params.propertyId;
+        const updatedData = req.body;
 
-      updatedData.secondDate = new Date();
-      
-      const updatedProperty = await User.findByIdAndUpdate(propertyId, updatedData, { new: true });
-  
-      if (!updatedProperty) {
-        return res.status(404).json({ error: 'Property not found' });
-      }
-  
-      res.json(updatedProperty);
+        updatedData.secondDate = new Date();
+
+        const updatedProperty = await property.findByIdAndUpdate(propertyId, updatedData, { new: true });
+
+        if (!updatedProperty) {
+            return res.status(404).json({ error: 'Property not found' });
+        }
+
+        res.json(updatedProperty);
     } catch (e) {
-      console.error('Error:', e);
-      res.status(500).json({ error: 'Something went wrong' });
+        console.error('Error:', e);
+        res.status(500).json({ error: 'Something went wrong' });
     }
-  });
+});
 
 app.post('/register', async (req, resp) => {
     try {
-        const user = new User(req.body);
-        let result = await user.save();
+        const newProperty = new property(req.body);
+        let result = await newProperty.save();
         result = result.toObject();
         if (result) {
-            delete result.password; 
             resp.json(result);
             console.log(result);
         } else {
-            console.log('User already registered');
+            console.log('Property already registered');
         }
     } catch (e) {
         console.error('Error:', e);
