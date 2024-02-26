@@ -8,7 +8,6 @@ const PropertyFetcher = ({ setProperties }) => {
         const response = await fetch('http://localhost:5000/properties');
         const data = await response.json();
         setProperties(data);
-        console.log(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }

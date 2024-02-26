@@ -60,7 +60,7 @@ const propertySchema = new mongoose.Schema({
 const property = mongoose.model('property', propertySchema);
 
 const insertedProperty = new property({
-        propertyOwner: "Nordahl Fastigheter",
+        propertyOwner: "TEST OBJECT inc",
         organisationNumber: "",
         propertyTag: "Kolonisten 3",
         propertyAddress: "Järnvägsgatan 62",
@@ -76,8 +76,6 @@ await insertedProperty.save();
 // For backend and express
 app.use(express.json());
 app.use(cors());
-
-app.get('/favicon.ico', (req, res) => res.status(204));
 
 app.get('/properties', async (req, resp) => {
     try {
