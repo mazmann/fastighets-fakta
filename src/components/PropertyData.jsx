@@ -15,7 +15,7 @@ const PropertyData = () => {
         setProperty(data);
       } catch (error) {
         console.error('Error fetching data:', error);
-        // Handle errors more gracefully
+        
       }
     };
 

@@ -79,7 +79,7 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 
 app.get('/properties', async (req, resp) => {
     try {
-        const properties = await User.find({}, '-password'); // Exclude the password field
+        const properties = await User.find({}, '-password'); 
         resp.json(properties);
     } catch (e) {
         console.error('Error:', e);
