@@ -18,6 +18,8 @@ function Navigation() {
         <li className="navbar-item">
           <Link to="/owner" className="navbar-link">PROPERTY OWNER</Link>
         </li>
+
+        
       </ul>
     </nav>
   );

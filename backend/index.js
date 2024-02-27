@@ -140,6 +140,22 @@ app.post('/register', async (req, resp) => {
     }
 });
 
+app.delete('/properties/:propertyId', async (req, res) => {
+    try {
+        const propertyId = req.params.propertyId;
+        const deletedProperty = await property.findByIdAndDelete(propertyId);
+
+        if (!deletedProperty) {
+            return res.status(404).json({ error: 'Property not found' });
+        }
+
+        res.json({ message: 'Property deleted successfully' });
+    } catch (e) {
+        console.error('Error:', e);
+        res.status(500).json({ error: 'Something went wrong' });
+    }
+});
+
 app.listen(port, () => {
     console.log(`App listen at port ${port}`);
 });

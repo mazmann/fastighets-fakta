@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import EditProperty from './components/EditProperty';
 import PropertyOwner from './components/PropertyOwner';
 import Home from './components/Home';
+import DeleteProperty from './api/DeleteProperty';
 
 
 
