@@ -34,6 +34,7 @@
 .pagination-button {
   background-color: #fed017;
   color: #444;
+  border-radius: 5px;
   border: none;
   margin: 0 5px;
   cursor: pointer;
@@ -49,6 +50,7 @@
 
 .current-page {
   margin: 0 10px;
+  border-radius: 5px;
   font-size: 14px;
   color: #5d5d5d;
   background-color: #f1f1f1;
