@@ -6,6 +6,7 @@
 
 .more-info-button {
   background-color: #fed017;
+  border-radius: 5px;
   color: #34410d;
   font-weight: bold;
   border: none;

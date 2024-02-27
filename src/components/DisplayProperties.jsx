@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './DisplayProperties.css';
 import { MoreInfoButton, PaginationButtons } from './Buttons';
 import PropertyFetcher from '../api/PropertyFetcher';
-import DeleteProperty from '../api/DeleteProperty';
 
 function DisplayProperties() {
   const [properties, setProperties] = useState([]);

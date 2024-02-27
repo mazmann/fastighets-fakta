@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto+Slab:wght@500&display=swap');
 
+
 .navbar {
   text-align: center;
-}
-
-.navbar-list {
   padding: 10px 0;
 }
+
+/* .navbar-list {
+  padding: 10px 0;
+} */
 
 .navbar-item {
   display: inline;
