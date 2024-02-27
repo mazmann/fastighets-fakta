@@ -3,8 +3,9 @@
 body {
   overflow-y: scroll;
 border-radius: 10px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 padding: 0;
+/* background-color: #f5f5f5; */
 
 }
 
@@ -67,5 +68,6 @@ input {
   font-size: 16px;
   border: none;
   border: 1px solid rgba(128, 128, 128, 0.323);
+  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
