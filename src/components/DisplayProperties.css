@@ -16,6 +16,15 @@
   z-index: 999;
 }
 
+.expanded-row {
+  display: table-row;
+}
+
+.expanded-content {
+  display: block;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
 
 .display-properties-table {
   width: 100%;

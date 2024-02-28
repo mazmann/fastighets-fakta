@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import './DisplayProperties.css';
 import { MoreInfoButton, PaginationButtons } from './Buttons';
 import PropertyFetcher from '../api/PropertyFetcher';
-import HouseIcon from '../images/line-md--briefcase.svg'
+import HouseIcon from '../images/line-md--briefcase.svg';
+import PropertyData from './PropertyData';
 
 function DisplayProperties() {
   const [properties, setProperties] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [expandedProperty, setExpandedProperty] = useState(null);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -23,6 +25,10 @@ function DisplayProperties() {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
     }
+  };
+
+  const toggleExpansion = (propertyId) => {
+    setExpandedProperty((prevPropertyId) => (prevPropertyId === propertyId ? null : propertyId));
   };
 
   return (
@@ -42,22 +48,30 @@ function DisplayProperties() {
             </thead>
             <tbody>
               {displayedProperties.map((property) => (
-                <tr key={property._id}>
-                  <td>
-                    <div className='house-icon-container'>
-                      <img className='house-icon' src={HouseIcon} alt="House Icon" />
-                    </div>
-                    {property.propertyAddress}
-                  </td>
-                  <td>{property.propertyOwner}</td>
-                  <td className='centered-td'>
-                    {(property.secondDate !== null && property.secondDate !== undefined) ? formatDate(property.secondDate) : formatDate(property.date)}
-                  </td>
-                  <td className='centered-td'>
-                    <MoreInfoButton id={property._id} />
-                    {/* <DeleteProperty id={property._id} /> */}
-                  </td>
-                </tr>
+                <React.Fragment key={property._id}>
+                  <tr>
+                    <td>
+                      <div className='house-icon-container'>
+                        <img className='house-icon' src={HouseIcon} alt="House Icon" />
+                      </div>
+                      {property.propertyAddress}
+                    </td>
+                    <td>{property.propertyOwner}</td>
+                    <td className='centered-td'>
+                      {(property.secondDate !== null && property.secondDate !== undefined) ? formatDate(property.secondDate) : formatDate(property.date)}
+                    </td>
+                    <td className='centered-td'>
+                      <MoreInfoButton id={property._id} />
+                      <button className="more-info-button" onClick={() => toggleExpansion(property._id)}>
+                        {expandedProperty === property._id ? 'Collapse' : 'Expand'}
+                      </button>
+                    </td>
+                    {expandedProperty === property._id && (
+                    
+                 <PropertyData id={property._id} />
+                  )}
+                  </tr>
+                </React.Fragment>
               ))}
             </tbody>
           </table>
