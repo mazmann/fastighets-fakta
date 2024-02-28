@@ -1,10 +1,8 @@
 body {
   overflow-y: scroll;
   border-radius: 10px;
-
   padding: 0;
   /* background-color: #f5f5f5; */
-
 }
 
 .App,
@@ -35,69 +33,6 @@ h6 {
   margin: 21.44px;
   margin-left: 0;
 }
-
-
-.display-properties-table {
-  width: 100%;
-  border-spacing: 0 10px;
-  table-layout: fixed; 
-}
-
-.display-properties-table th {
-  border-bottom: 1px solid #ddd;
-  
-}
-
-.display-properties-table th,
-td {
-  text-align: left;
-  padding: 8px;
-}
-
-
-.display-properties-table tbody tr {
-background-color:white;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-height: 60px;
-}
-
-
-.view-property-table th,
-td {
-  padding: 8px;
-  text-align: left;
-  /* border-bottom: 1px solid #ddd; */
-}
-
-.view-property-table tr {
-  height: 50px;
-}
-
-
-.view-property-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-} 
-
-
-.edit-property-table th,
-td {
-  padding: 8px;
-  text-align: left;
-  /* border-bottom: 1px solid #ddd; */
-}
-
-.edit-property-table tr {
-  height: 50px;
-}
-
-
-.edit-property-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-} 
 
 tbody tr:hover {
   background-color: #f0f0f0;

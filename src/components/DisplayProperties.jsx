@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './DisplayProperties.css';
 import { MoreInfoButton, PaginationButtons } from './Buttons';
 import PropertyFetcher from '../api/PropertyFetcher';
+import HouseIcon from '../images/line-md--briefcase.svg'
 
 function DisplayProperties() {
   const [properties, setProperties] = useState([]);
@@ -42,7 +43,12 @@ function DisplayProperties() {
             <tbody>
               {displayedProperties.map((property) => (
                 <tr key={property._id}>
-                  <td>{property.propertyAddress}</td>
+                  <td>
+                    <div className='house-icon-container'>
+                      <img className='house-icon' src={HouseIcon} alt="House Icon" />
+                    </div>
+                    {property.propertyAddress}
+                  </td>
                   <td>{property.propertyOwner}</td>
                   <td className='centered-td'>
                     {(property.secondDate !== null && property.secondDate !== undefined) ? formatDate(property.secondDate) : formatDate(property.date)}

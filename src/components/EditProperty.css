@@ -1,0 +1,17 @@
+.edit-property-table th,
+.edit-property-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.edit-property-table tr {
+  height: 50px;
+}
+
+
+.edit-property-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+} 

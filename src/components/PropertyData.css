@@ -1,3 +1,22 @@
+
+.view-property-table th,
+.view-property-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.view-property-table tr {
+  height: 50px;
+}
+
+
+.view-property-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+} 
+
 .data-button-container {
     display: flex;
     gap: 1rem;

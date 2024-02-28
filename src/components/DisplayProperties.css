@@ -1,7 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto+Slab:wght@500&display=swap');
+.house-icon-container {
+  position: relative;
+  padding: 0;
+  margin-top: -5px;
+  margin-left: -40px;
+  margin-left: -40px;
+  height: 5px;
+  z-index: 999;
+}
+
+.house-icon {
+  color: red;
+  font-size: 40px;
+  font-weight: bold;
+  z-index: 999;
+}
+
+
+.display-properties-table {
+  width: 100%;
+  border-spacing: 0 10px;
+  table-layout: fixed;
+}
+
+.display-properties-table th {
+  border-bottom: 1px solid #ddd;
+
+}
+
+.display-properties-table th,td {
+  text-align: left;
+  padding: 8px;
+  padding-left: 50px;
+}
+
+
+.display-properties-table tbody tr {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 60px;
+}
+
 
 .centered-td {
-  padding-left: 30px;
+  padding-left: 45px;
 }
 
 .more-info-button {
