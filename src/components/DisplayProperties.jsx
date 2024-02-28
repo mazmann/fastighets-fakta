@@ -12,7 +12,7 @@ function DisplayProperties() {
     return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
   };
 
-  const itemsPerPage = 7;
+  const itemsPerPage = 5;
   const totalPages = Math.ceil(properties.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -30,7 +30,7 @@ function DisplayProperties() {
       <PropertyFetcher setProperties={setProperties} />
       {properties.length > 0 ? (
         <>
-          <table>
+          <table className='display-properties-table'>
             <thead>
               <tr>
                 <th>Property address</th>
