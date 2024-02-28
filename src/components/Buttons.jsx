@@ -62,6 +62,21 @@ export const MoreInfoButton = ({ id }) => {
     );
 };
 
+const ToggleActiveButton = ({ propertyId, activeProperty, toggleActive }) => {
+    const handleClick = () => {
+      toggleActive(propertyId);
+    };
+  
+    return (
+      <button onClick={handleClick}>
+        {activeProperty === propertyId ? 'Deactivate' : 'Activate'}
+      </button>
+    );
+  };
+  
+  export default ToggleActiveButton;
+
+
 export const PaginationButtons = ({ currentPage, totalPages, setPage }) => {
     return (
         <div className="pagination">

@@ -16,20 +16,11 @@
   z-index: 999;
 }
 
-.expanded-row {
-  display: table-row;
-}
-
-.expanded-content {
-  display: block;
-  padding: 10px;
-  background-color: #f9f9f9;
-}
-
 .display-properties-table {
   width: 100%;
   border-spacing: 0 10px;
   table-layout: fixed;
+
 }
 
 .display-properties-table th {
@@ -43,12 +34,25 @@
   padding-left: 50px;
 }
 
+.property-details-row {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.property-details-row.active {
+  height: auto;
+}
+
 
 .display-properties-table tbody tr {
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   height: 60px;
+  transform: translateY(0); /* Initial state */
+  transition: transform 0.3s ease; 
 }
+
 
 
 .centered-td {
