@@ -4,6 +4,9 @@
 .navbar {
   text-align: center;
   padding: 10px 0;
+  background-color: #fff;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 /* .navbar-list {

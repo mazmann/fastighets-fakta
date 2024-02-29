@@ -41,16 +41,16 @@ function DisplayProperties() {
           <table className='display-properties-table'>
             <thead>
               <tr>
-                <th>Property address</th>
-                <th>Property owner</th>
-                <th>Last updated data</th>
-                <th>Actions</th>
+                <th className='property-display-header'>Property address</th>
+                <th className='property-display-header'>Property owner</th>
+                <th className='property-display-header'>Last updated data</th>
+                <th className='property-display-header'>Actions</th>
               </tr>
             </thead>
             <tbody>
               {displayedProperties.map((property) => (
                 <React.Fragment key={property._id}>
-                  <tr>
+                  <tr className='rendered-property-rows'>
                     <td>
                       <div className='house-icon-container'>
                         <img className='house-icon' src={HouseIcon} alt="House Icon" />
@@ -63,7 +63,10 @@ function DisplayProperties() {
                     </td>
                     <td className='centered-td'>
                       <MoreInfoButton id={property._id} />
-                      <ToggleActiveButton
+                    
+                    </td>
+                    <td className='left-td'>
+                    <ToggleActiveButton
                         propertyId={property._id}
                         activeProperty={activeProperty}
                         toggleActive={toggleActive}
@@ -71,9 +74,28 @@ function DisplayProperties() {
                     </td>
                   </tr>
                   {activeProperty === property._id && (
-                   <tr>
+                    <tr className='expanded-table-row'>
                       <td colSpan="4">
-                        <span>Additional content for the active property</span>
+
+                        {/* <table>
+                          <thead>
+                            <tr>
+                              <th className='contact-header'>CONTACT</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className='contact-data'>Data 1</td>
+                              <td className='contact-data'>Data 2</td>
+                            </tr>
+                            <tr>
+                              <td className='contact-data'>Data 1</td>
+                              <td className='contact-data'>Data 2</td>
+                            </tr>
+                          </tbody>
+                        </table> */}
+                      <PropertyData id={property._id} />
+
                       </td>
                     </tr>
                   )}

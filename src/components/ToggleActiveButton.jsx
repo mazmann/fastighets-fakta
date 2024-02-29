@@ -7,7 +7,7 @@ const ToggleActiveButton = ({ propertyId, activeProperty, toggleActive }) => {
   };
 
   return (
-    <button onClick={handleClick}>
+    <button className='toggle-active-button' onClick={handleClick}>
       {activeProperty === propertyId ? 'Deactivate' : 'Activate'}
     </button>
   );

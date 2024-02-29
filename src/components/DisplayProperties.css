@@ -1,4 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto+Slab:wght@500&display=swap');
+
+
+.contact-header {
+  font-size: 12px;
+}
+.contact-data {
+  font-size: 12px;
+}
+
+.display-properties-table {
+  width: 100%;
+  border-spacing: 0 10px;
+  table-layout: fixed;
+
+}
+
+.property-display-header {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+}
+
+.display-properties-table th,
+td {
+  text-align: left;
+  padding-left: 50px;
+}
+
+
+.rendered-property-rows {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 60px;
+}
+
+.centered-td {
+  padding-left: 50px;
+}
+.left-td {
+  padding-left: 5px;
+}
+
 .house-icon-container {
   position: relative;
   padding: 0;
@@ -16,51 +57,19 @@
   z-index: 999;
 }
 
-.display-properties-table {
-  width: 100%;
-  border-spacing: 0 10px;
-  table-layout: fixed;
-
-}
-
-.display-properties-table th {
-  border-bottom: 1px solid #ddd;
-
-}
-
-.display-properties-table th,td {
-  text-align: left;
-  padding: 8px;
-  padding-left: 50px;
-}
-
-.property-details-row {
-  height: 0;
-  overflow: hidden;
-  transition: height 0.3s ease;
-}
-
-.property-details-row.active {
-  height: auto;
-}
-
-
-.display-properties-table tbody tr {
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height: 60px;
-  transform: translateY(0); /* Initial state */
-  transition: transform 0.3s ease; 
-}
-
-
-
-.centered-td {
-  padding-left: 45px;
-}
 
 .more-info-button {
   background-color: #fed017;
+  border-radius: 5px;
+  color: #34410d;
+  font-weight: bold;
+  border: none;
+  height: 2rem;
+  width: 5rem;
+}
+
+.toggle-active-button {
+  background-color: #c1d604;
   border-radius: 5px;
   color: #34410d;
   font-weight: bold;
@@ -79,11 +88,11 @@
   justify-content: center;
   align-items: center;
   color: #fff;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   left: 0;
   right: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .pagination-button {
