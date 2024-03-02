@@ -77,7 +77,7 @@ function DisplayProperties() {
                     <tr className='expanded-table-row'>
                       <td colSpan="4">
 
-                        {/* <table>
+                        <table>
                           <thead>
                             <tr>
                               <th className='contact-header'>CONTACT</th>
@@ -85,7 +85,7 @@ function DisplayProperties() {
                           </thead>
                           <tbody>
                             <tr>
-                              <td className='contact-data'>Data 1</td>
+                            <td>{property.propertyOwner}</td>
                               <td className='contact-data'>Data 2</td>
                             </tr>
                             <tr>
@@ -93,8 +93,8 @@ function DisplayProperties() {
                               <td className='contact-data'>Data 2</td>
                             </tr>
                           </tbody>
-                        </table> */}
-                      <PropertyData id={property._id} />
+                        </table>
+                      {/* <PropertyData id={property._id} /> */}
 
                       </td>
                     </tr>
