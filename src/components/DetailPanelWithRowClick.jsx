@@ -12,11 +12,11 @@ const Example = () => {
   const columns = useMemo(
     //column definitions...
     () => [
-    //   {
-    //     accessorKey: 'id',
-    //     header: 'ID',
-    //     size: 50,
-    //   },
+      {
+        accessorKey: 'id',
+        header: 'ID',
+        size: 50,
+      },
       {
         accessorKey: 'firstName',
         header: 'First Name',
