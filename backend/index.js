@@ -69,6 +69,9 @@ const insertedProperty = new property({
         visitingArea: "",
         contactRep: "Bengt Mikael Nordahl",
         phoneNumber: "087957801",
+        email: "",
+        date: "",
+        secondDate: "",
 });
 
 await insertedProperty.save();
