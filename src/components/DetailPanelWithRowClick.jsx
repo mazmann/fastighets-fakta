@@ -1,12 +1,20 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import {
+  MRT_EditActionButtons,
   MaterialReactTable,
   useMaterialReactTable,
 } from 'material-react-table';
+import {
+  Button,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  IconButton,
+  Tooltip,
+} from '@mui/material';
 import { Box, Typography } from '@mui/material';
 import { data } from './makeData';
 
-// Rest of the code...
 
 const Example = () => {
   const columns = useMemo(
@@ -33,11 +41,12 @@ const Example = () => {
     [],
     //end
   );
-
   console.log('data:', data);
+
 
   const table = useMaterialReactTable({
     columns,
+    createDisplayMode: 'modal', //default ('row', and 'custom' are also available)
     data: data || [],
     enableExpandAll: false, //disable expand all button
     muiDetailPanelProps: () => ({
@@ -48,6 +57,25 @@ const Example = () => {
             : 'rgba(0,0,0,0.1)',
       }),
     }),
+
+  
+    //optionally customize modal content
+    renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
+      <>
+        <DialogTitle variant="h3">Create New User</DialogTitle>
+        <DialogContent
+          sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
+        >
+          {internalEditComponents} {/* or render custom edit components here */}
+        </DialogContent>
+        <DialogActions>
+          <MRT_EditActionButtons variant="text" table={table} row={row} />
+        </DialogActions>
+      </>
+    ),
+
+
+    
     //custom expand button rotation
     muiExpandButtonProps: ({ row, table }) => ({
       onClick: () => table.setExpanded({ [row.id]: !row.getIsExpanded() }), //only 1 detail panel open at a time
@@ -56,7 +84,14 @@ const Example = () => {
         transition: 'transform 0.2s',
       },
     }),
-    //conditionally render detail panel
+
+        renderTopToolbarCustomActions: ({ table }) => (
+      <Button
+        variant="contained">
+        Create New User
+      </Button>
+    ),
+
     renderDetailPanel: ({ row }) =>
       row.original.address ? (
         <Box
@@ -77,5 +112,8 @@ const Example = () => {
 
   return <MaterialReactTable table={table} />;
 };
+
+
+
 
 export default Example;

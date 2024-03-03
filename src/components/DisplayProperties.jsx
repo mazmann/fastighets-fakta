@@ -7,6 +7,7 @@ import PropertyData from './PropertyData';
 import ToggleActiveButton from './ToggleActiveButton';
 import DetailPanelWithRowClick from './DetailPanelWithRowClick';
 
+
 function DisplayProperties() {
   const [properties, setProperties] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -14,10 +15,12 @@ function DisplayProperties() {
 
 
   return (
+
     <div className='App'>
       <h4>Display Properties</h4>
       <DetailPanelWithRowClick/>
     </div>
+
   );
 }
 
