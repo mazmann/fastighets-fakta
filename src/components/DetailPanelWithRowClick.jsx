@@ -105,6 +105,7 @@ const Example = () => {
           <Typography>City: {row.original.city}</Typography>
           <Typography>State: {row.original.state}</Typography>
           <Typography>Country: {row.original.country}</Typography>
+          <Typography>gfdsfsd: {row.original.ideologi}</Typography>
         </Box>
       ) : null,
   });
