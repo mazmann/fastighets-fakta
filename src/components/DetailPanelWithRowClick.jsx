@@ -46,7 +46,6 @@ const Example = () => {
 
   const table = useMaterialReactTable({
     columns,
-    createDisplayMode: 'modal', //default ('row', and 'custom' are also available)
     data: data || [],
     enableExpandAll: false, //disable expand all button
     muiDetailPanelProps: () => ({
