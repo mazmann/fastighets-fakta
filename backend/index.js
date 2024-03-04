@@ -61,7 +61,7 @@ const property = mongoose.model('property', propertySchema);
 
 const insertedProperty = new property({
         propertyOwner: "TEST OBJECT inc",
-        organisationNumber: "",
+        organisationNumber: "123345",
         propertyTag: "Kolonisten 3",
         propertyAddress: "Järnvägsgatan 62",
         propertyArea: "Sundbyberg",

@@ -1,17 +1,36 @@
 const data = [
 
-
     {
         id: 1,
-        firstName: 'John',
-        middleName: 'Doe',
-        lastName: 'Smith',
-        address: '123 Main St',
-        city: 'Anytown',
-        state: 'CA',
-        country: 'USA',
-        ideologi: 'USA',
+        propertyOwner: 'fdsfsd',
+        organisationNumber: "123345",
+        propertyTag: "Kolonisten 3",
+        propertyAddress: 'Järnvägsgatan 62',
+        propertyArea: 'Sundbyberg',
+
+        visitingArea: 'fdsfsd',
+        contactRep: 'Bengt Mikael Nordahl',
+        phoneNumber: '087957801',
+        email: "",
+        date: "",
+        secondDate: ""
     },
+    {
+        id: 2,
+        propertyOwner: 'fdsfsd',
+        organisationNumber: "123345",
+        propertyTag: "Kolonisten 3",
+        propertyAddress: 'Järnvägsgatan 62',
+        propertyArea: 'Sundbyberg',
+        address: 'fsdfsd',
+        visitingArea: 'fdsfsd',
+        contactRep: 'Bengt Mikael Nordahl',
+        phoneNumber: '087957801',
+        email: "",
+        date: "",
+        secondDate: ""
+    },
+
   
 ];
 

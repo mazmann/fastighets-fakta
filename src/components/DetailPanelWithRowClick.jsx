@@ -26,15 +26,15 @@ const Example = () => {
         size: 50,
       },
       {
-        accessorKey: 'firstName',
+        accessorKey: 'propertyAddress',
         header: 'First Name',
       },
       {
-        accessorKey: 'middleName',
-        header: 'Middle Name',
+        accessorKey: 'propertyOwner',
+        header: 'Property Owner',
       },
       {
-        accessorKey: 'lastName',
+        accessorKey: 'organisationNumber',
         header: 'Last Name',
       },
     ],
@@ -92,7 +92,7 @@ const Example = () => {
     ),
 
     renderDetailPanel: ({ row }) =>
-      row.original.address ? (
+      row.original.propertyAddress ? (
         <Box
           sx={{
             display: 'grid',
@@ -101,11 +101,11 @@ const Example = () => {
             width: '100%',
           }}
         >
-          <Typography>Address: {row.original.address}</Typography>
-          <Typography>City: {row.original.city}</Typography>
-          <Typography>State: {row.original.state}</Typography>
-          <Typography>Country: {row.original.country}</Typography>
-          <Typography>gfdsfsd: {row.original.ideologi}</Typography>
+          <Typography>City: {row.original.propertyArea}</Typography>
+          <Typography>City: {row.original.propertyTag}</Typography>
+          <Typography>Address: {row.original.propertyAddress}</Typography>
+          <Typography>Visiting Area: {row.original.visitingArea}</Typography>
+          <Typography>Contact: {row.original.contactRep}</Typography>
         </Box>
       ) : null,
   });
