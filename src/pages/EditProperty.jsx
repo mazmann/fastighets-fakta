@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchDataById, updateData } from '../api/EditDataArray';
-import { SaveUpdatedData, BackToData } from './Buttons';
-import './EditProperty.css'
+import { fetchDataById, updateData } from '../hooks/EditDataArray';
+import { SaveUpdatedData, BackToData } from '../components/Buttons';
+import './styles/EditProperty.css'
 
 
 
