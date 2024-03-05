@@ -70,7 +70,7 @@ function NewProperty() {
     <div className="App">
       <h1>Register Property</h1>        {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form>
-        <table>
+      <table className='new-property-table'>
           <tbody>
             <tr>
               <td>

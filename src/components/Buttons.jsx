@@ -56,7 +56,7 @@ export const MoreInfoButton = ({ id }) => {
     return (
         <Link to={`/property/${id}`}>
             <button className='more-info-button'>
-                Open
+                DETAILS
             </button>
         </Link>
     );

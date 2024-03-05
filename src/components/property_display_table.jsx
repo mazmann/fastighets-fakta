@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect } from 'react';
+import { MoreInfoButton } from './Buttons';
 import {
   MRT_EditActionButtons,
   MaterialReactTable,
@@ -69,19 +70,20 @@ const Example = () => {
 
 
     //optionally customize modal content
-    renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
-      <>
-        <DialogTitle variant="h3">Create New User</DialogTitle>
-        <DialogContent
-          sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
-        >
-          {internalEditComponents} {/* or render custom edit components here */}
-        </DialogContent>
-        <DialogActions>
-          <MRT_EditActionButtons variant="text" table={table} row={row} />
-        </DialogActions>
-      </>
-    ),
+
+    // renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
+    //   <>
+    //     <DialogTitle variant="h3">Create New User</DialogTitle>
+    //     <DialogContent
+    //       sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
+    //     >
+    //       {internalEditComponents} {/* or render custom edit components here */}
+    //     </DialogContent>
+    //     <DialogActions>
+    //       <MRT_EditActionButtons variant="text" table={table} row={row} />
+    //     </DialogActions>
+    //   </>
+    // ),
 
 
 
@@ -117,6 +119,7 @@ const Example = () => {
           <Typography>Visiting Area: {row.original.visitingArea}</Typography>
           <Typography>Contact: {row.original.contactRep}</Typography>
           <Typography>Org: {row.original.organisationNumber}</Typography>
+          <Typography><MoreInfoButton id={row.original._id} /></Typography>
         </Box>
       ) : null,
   });
