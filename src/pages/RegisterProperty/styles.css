@@ -1,7 +1,7 @@
 .register-form-wrapper {
   background-color: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  padding: 4rem;
 }
 
 
@@ -9,9 +9,17 @@
 .new-property-table td {
   padding: 8px;
   /* text-align: left; */
-  /* border-bottom: 1px solid #ddd; */
+  border-bottom: 1px solid #ddd;
   /* border-right: 1px solid #ddd ; */
 }
+
+/* 
+.new-property-table tr:nth-child(even) {
+   border-bottom: 1px solid #ddd;
+   border-radius: 10px;
+} */
+
+
 
 .new-property-table tr {
   height: 50px;

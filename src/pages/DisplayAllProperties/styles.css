@@ -27,60 +27,13 @@
   border: none;
   height: 2rem;
   width: 5rem;
-}
-
-.toggle-active-button {
-  background-color: #c1d604;
-  border-radius: 5px;
-  color: #34410d;
-  font-weight: bold;
-  border: none;
-  height: 2rem;
-  width: 5rem;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .more-info-button:hover {
-  /* background-color: #9ba25c; */
   cursor: pointer;
+  background-color: #e5bd00; /* Slightly darker yellow */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Shadow */
 }
 
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  /* position: absolute; */
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-bottom: 0px;
-}
 
-.pagination-button {
-  background-color: #fed017;
-  color: #444;
-  border-radius: 5px;
-  border: none;
-  margin: 0 5px;
-  cursor: pointer;
-  font-size: 21px;
-  font-weight: bold;
-  height: 28px;
-  transition: background-color 0.3s ease;
-}
-
-.pagination-button:hover {
-  background-color: #6f747a;
-}
-
-.current-page {
-  margin: 0 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  color: #5d5d5d;
-  border: 1px solid #e3e2e2;
-  font-weight: bold;
-  padding: 4px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
