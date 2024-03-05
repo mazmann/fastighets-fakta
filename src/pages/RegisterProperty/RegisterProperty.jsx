@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles/RegisterProperty.css';
+import './styles.css';
 
 function NewProperty() {
   const [propertyOwner, setPropertyOwner] = useState('');

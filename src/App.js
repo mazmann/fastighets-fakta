@@ -1,14 +1,14 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import RegisterProperty from './pages/RegisterProperty';
-import DisplayProperties from './pages/DisplayProperties';
-import PropertyTable from './components/PropertyTable';
-import PropertyData from './pages/PropertyData';
+import RegisterProperty from './pages/RegisterProperty/RegisterProperty';
+import DisplayProperties from './pages/DisplayAllProperties/DisplayProperties';
+import PropertyTable from './pages/DisplayAllProperties/PropertyTable';
+import PropertyData from './pages/ViewMorePropertyData/PropertyData';
 import Navigation from './components/Navigation';
-import EditProperty from './pages/EditProperty';
-import PropertyOwner from './pages/PropertyOwner';
-import Home from './pages/Home';
+import EditProperty from './pages/UpdateProperty/EditProperty';
+import PropertyOwner from './pages/PropertyOwners/PropertyOwner';
+import Home from './pages/HomePage/Home';
 
 
 

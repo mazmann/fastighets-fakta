@@ -1,5 +1,5 @@
 import { useMemo, useState, useEffect } from 'react';
-import { MoreInfoButton } from './Buttons';
+import { MoreInfoButton } from '../../components/Buttons';
 import {
   MRT_EditActionButtons,
   MaterialReactTable,
