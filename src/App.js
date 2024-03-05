@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import NewProperty from './pages/NewProperty';
+import RegisterProperty from './pages/RegisterProperty';
 import DisplayProperties from './pages/DisplayProperties';
 import PropertyTable from './components/PropertyTable';
 import PropertyData from './pages/PropertyData';
@@ -23,7 +23,7 @@ function App() {
         <Route path="/property/:propertyId" element={<PropertyData />} />
         <Route path="/property/:propertyId" element={<PropertyTable />} />
         <Route path="/edit/:propertyId" element={<EditProperty />} />
-        <Route path="/register" element={<NewProperty />} />
+        <Route path="/register" element={<RegisterProperty />} />
         <Route path="/owner" element={<PropertyOwner />} />
       </Routes>
       </>
