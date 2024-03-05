@@ -1,10 +1,23 @@
 import React from 'react'
+import OwnersTable from './OwnersTable'
+import {
+  QueryClient,
+  QueryClientProvider,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const PropertyOwner = () => {
   return (
+   
     <div className='App'>
         <h5>Property Owners</h5>
-        <p>Work in progress!</p>
+        <QueryClientProvider client={queryClient}>
+<OwnersTable />
+        </QueryClientProvider>
     </div>
   )
 }
