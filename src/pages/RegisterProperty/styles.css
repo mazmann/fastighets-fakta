@@ -8,8 +8,9 @@
 .new-property-table th,
 .new-property-table td {
   padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+  /* text-align: left; */
+  /* border-bottom: 1px solid #ddd; */
+  /* border-right: 1px solid #ddd ; */
 }
 
 .new-property-table tr {
