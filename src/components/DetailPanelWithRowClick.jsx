@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import {
   MRT_EditActionButtons,
   MaterialReactTable,
@@ -13,36 +13,46 @@ import {
   Tooltip,
 } from '@mui/material';
 import { Box, Typography } from '@mui/material';
-import { data } from './makeData';
-
-
 const Example = () => {
+  const [data, setData] = useState(null);
+  const fetchData = async () => {
+    // Perform your asynchronous data fetching here
+    // For example, using fetch or axios
+    const response = await fetch('http://localhost:5000/properties');
+    const data = await response.json();
+    console.log(data);
+    setData(data); // setData is a function that updates the state
+
+  };
+
+  useEffect(() => {
+    fetchData(); // Call the function to fetch the data when the component mounts
+  }, []);
+
   const columns = useMemo(
     //column definitions...
     () => [
-      {
-        accessorKey: 'id',
-        header: 'ID',
-        size: 50,
-      },
+      // {
+      //   accessorKey: '_id',
+      //   header: 'ID',
+      //   size: 50,
+      // },
       {
         accessorKey: 'propertyAddress',
-        header: 'First Name',
+        header: 'Property Address',
       },
       {
         accessorKey: 'propertyOwner',
         header: 'Property Owner',
       },
       {
-        accessorKey: 'organisationNumber',
-        header: 'Last Name',
+        accessorKey: 'propertyArea',
+        header: 'Area',
       },
     ],
     [],
     //end
   );
-  console.log('data:', data);
-
 
   const table = useMaterialReactTable({
     columns,
@@ -57,7 +67,7 @@ const Example = () => {
       }),
     }),
 
-  
+
     //optionally customize modal content
     renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
       <>
@@ -74,7 +84,7 @@ const Example = () => {
     ),
 
 
-    
+
     //custom expand button rotation
     muiExpandButtonProps: ({ row, table }) => ({
       onClick: () => table.setExpanded({ [row.id]: !row.getIsExpanded() }), //only 1 detail panel open at a time
@@ -84,10 +94,10 @@ const Example = () => {
       },
     }),
 
-        renderTopToolbarCustomActions: ({ table }) => (
+    renderTopToolbarCustomActions: ({ table }) => (
       <Button
         variant="contained">
-        Create New User
+        Add Property
       </Button>
     ),
 
@@ -102,10 +112,11 @@ const Example = () => {
           }}
         >
           <Typography>City: {row.original.propertyArea}</Typography>
-          <Typography>City: {row.original.propertyTag}</Typography>
+          <Typography>Phone: {row.original.phoneNumber}</Typography>
           <Typography>Address: {row.original.propertyAddress}</Typography>
           <Typography>Visiting Area: {row.original.visitingArea}</Typography>
           <Typography>Contact: {row.original.contactRep}</Typography>
+          <Typography>Org: {row.original.organisationNumber}</Typography>
         </Box>
       ) : null,
   });
