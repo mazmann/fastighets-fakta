@@ -30,14 +30,10 @@ const Example = () => {
     fetchData(); // Call the function to fetch the data when the component mounts
   }, []);
 
+
   const columns = useMemo(
     //column definitions...
     () => [
-      // {
-      //   accessorKey: '_id',
-      //   header: 'ID',
-      //   size: 50,
-      // },
       {
         accessorKey: 'propertyAddress',
         header: 'Property Address',
@@ -50,6 +46,14 @@ const Example = () => {
         accessorKey: 'propertyArea',
         header: 'Area',
       },
+      {
+        accessorKey: 'moreInfoButton',
+        header: 'Details / Edit', // Empty header for the button column
+        Cell: ({ row }) => (
+          <MoreInfoButton
+            id={row.original._id}/>
+        ),
+      },
     ],
     [],
     //end
@@ -59,33 +63,17 @@ const Example = () => {
     columns,
     data: data || [],
     enableExpandAll: false, //disable expand all button
+    muitabletdProps: () => ({ 
+      sx: () => ({
+        backgroundColor: 'black',
+      }),
+      }),
+      
     muiDetailPanelProps: () => ({
-      sx: (theme) => ({
-        backgroundColor:
-          theme.palette.mode === 'dark'
-            ? 'rgba(255,210,244,0.1)'
-            : 'rgba(0,0,0,0.1)',
+      sx: () => ({
+        backgroundColor: 'white',
       }),
     }),
-
-
-    //optionally customize modal content
-
-    // renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
-    //   <>
-    //     <DialogTitle variant="h3">Create New User</DialogTitle>
-    //     <DialogContent
-    //       sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
-    //     >
-    //       {internalEditComponents} {/* or render custom edit components here */}
-    //     </DialogContent>
-    //     <DialogActions>
-    //       <MRT_EditActionButtons variant="text" table={table} row={row} />
-    //     </DialogActions>
-    //   </>
-    // ),
-
-
 
     //custom expand button rotation
     muiExpandButtonProps: ({ row, table }) => ({
@@ -107,10 +95,11 @@ const Example = () => {
       row.original.propertyAddress ? (
         <Box
           sx={{
+            borderBottom: 'none',
             display: 'grid',
             margin: 'auto',
-            gridTemplateColumns: '1fr 1fr',
-            width: '100%',
+            gridTemplateColumns: '1fr 1fr 1fr',
+            width: '80%',
           }}
         >
           <Typography>City: {row.original.propertyArea}</Typography>
@@ -119,9 +108,9 @@ const Example = () => {
           <Typography>Visiting Area: {row.original.visitingArea}</Typography>
           <Typography>Contact: {row.original.contactRep}</Typography>
           <Typography>Org: {row.original.organisationNumber}</Typography>
-          <Typography><MoreInfoButton id={row.original._id} /></Typography>
         </Box>
       ) : null,
+      
   });
 
   return <MaterialReactTable table={table} />;

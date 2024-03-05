@@ -48,5 +48,6 @@ input {
   border: none;
   /* border: 1px solid rgba(128, 128, 128, 0.323); */
   border-radius: 5px;
+  border: 2px solid gray;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

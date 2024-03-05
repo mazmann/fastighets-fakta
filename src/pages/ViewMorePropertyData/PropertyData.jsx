@@ -26,7 +26,7 @@ const PropertyData = () => {
     <div className='App'>
       <h2>Property Details</h2>
       {property ? (
-        <form>
+        <form className='details-form-wrapper'>
           <table className='view-property-table'>
             <tbody>
               <tr>

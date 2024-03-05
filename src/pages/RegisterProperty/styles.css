@@ -1,3 +1,10 @@
+.register-form-wrapper {
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+
 .new-property-table th,
 .new-property-table td {
   padding: 8px;
@@ -14,6 +21,7 @@
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
+
 } 
 
 
