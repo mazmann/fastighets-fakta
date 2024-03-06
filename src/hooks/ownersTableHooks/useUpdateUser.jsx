@@ -28,9 +28,7 @@ function useUpdateUser() {
         },
         //client side optimistic update
         onMutate: (newUserInfo) => {
-          console.log('newUserInfo:', newUserInfo);
           queryClient.setQueryData(['users'], (prevUsers) => {
-              console.log('prevUsers:', prevUsers);
               return prevUsers?.map((prevUser) =>
                   prevUser._id === newUserInfo._id ? newUserInfo : prevUser,
               );

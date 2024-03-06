@@ -33,7 +33,7 @@ import { useCreateUser } from '../../hooks/ownersTableHooks/useCreateUser';
 
 const Example = () => {
   const [validationErrors, setValidationErrors] = useState({});
-  const [isCreating, setIsCreating] = useState(false);
+  const [isCreating, setIsCreating] = useState(true);
   const columns = useMemo(() => {
     const baseColumns = [
       {
@@ -46,7 +46,7 @@ const Example = () => {
       },
       {
         accessorKey: 'contactRep',
-        header: 'Contact Representative',
+        header: 'Contact Person',
       },
       {
         accessorKey: 'visitingAddress',
@@ -124,10 +124,22 @@ const Example = () => {
         minHeight: '500px',
       },
     },
-    onCreatingRowCancel: () => setValidationErrors({}),
-    onCreatingRowSave: handleCreateUser,
-    onEditingRowCancel: () => setValidationErrors({}),
-    onEditingRowSave: handleSaveUser,
+    onCreatingRowCancel: () => {
+      setValidationErrors({});
+      setIsCreating(true); // Set isCreating to false when the create modal is cancelled
+    },
+    onCreatingRowSave: (newData) => {
+      handleCreateUser(newData);
+      setIsCreating(true); // Set isCreating to false when the create modal is closed
+    },
+    onEditingRowCancel: () => {
+      setValidationErrors({});
+      setIsCreating(true); // Set isCreating to false when the edit modal is cancelled
+    },
+    onEditingRowSave: (newData) => {
+      handleSaveUser(newData);
+      setIsCreating(true); // Set isCreating to false when the edit modal is closed
+    },
     //optionally customize modal content
     renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
       <>
@@ -160,7 +172,7 @@ const Example = () => {
       <Box sx={{ display: 'flex', gap: '1rem' }}>
         <Tooltip title="Edit">
           <IconButton onClick={() => {
-            setIsCreating(true);
+            setIsCreating(false);
             table.setEditingRow(row)
           }}
           >
@@ -178,7 +190,6 @@ const Example = () => {
       <Button
         variant="contained"
         onClick={() => {
-          setIsCreating(true);
           table.setCreatingRow(true); //simplest way to open the create row modal with no default values
           //or you can pass in a row object to set default values with the `createRow` helper function
           // table.setCreatingRow(
