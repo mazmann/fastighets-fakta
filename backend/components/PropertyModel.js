@@ -1,9 +1,10 @@
-// propertyModel.js
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
+import _Firm from './FirmModel';
 
 const propertySchema = new mongoose.Schema({
     propertyOwner: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'Firm',
         required: true,
     },
     propertyTag: {
@@ -22,6 +23,6 @@ const propertySchema = new mongoose.Schema({
     },
 });
 
-const property = mongoose.model('property', propertySchema);
+const Property = mongoose.model('Property', propertySchema);
 
-export default property;
+export default Property;
