@@ -6,17 +6,17 @@ function Navigation() {
   return (
     <nav className="navbar">
       <ul className="navbar-list">
-        <li className="navbar-item">
+        {/* <li className="navbar-item">
           <Link to="/" className="navbar-link">HOME</Link>
-        </li>
+        </li> */}
         <li className="navbar-item">
-          <Link to="/display" className="navbar-link">DISPLAY</Link>
+          <Link to="/display" className="navbar-link">PROPERTY LIST</Link>
         </li>
-        <li className="navbar-item">
+        {/* <li className="navbar-item">
           <Link to="/register" className="navbar-link">REGISTER</Link>
-        </li>
+        </li> */}
         <li className="navbar-item">
-          <Link to="/owner" className="navbar-link">PROPERTY OWNER</Link>
+          <Link to="/owner" className="navbar-link">PROPERTY OWNERS</Link>
         </li>
 
         

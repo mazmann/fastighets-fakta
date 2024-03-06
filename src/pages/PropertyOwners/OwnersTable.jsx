@@ -33,7 +33,7 @@ import { useCreateUser } from '../../hooks/ownersTableHooks/useCreateUser';
 
 const Example = () => {
   const [validationErrors, setValidationErrors] = useState({});
-  const [isCreating, setIsCreating] = useState(true);
+  const [isIdVisible, setIsIdVisible] = useState(true);
   const columns = useMemo(() => {
     const baseColumns = [
       {
@@ -54,7 +54,7 @@ const Example = () => {
       },
     ];
   
-    if (!isCreating) {
+    if (!isIdVisible) {
       baseColumns.unshift({
         accessorKey: '_id',
         header: 'ID',
@@ -62,7 +62,7 @@ const Example = () => {
     }
   
     return baseColumns;
-  }, [isCreating, validationErrors]);
+  }, [isIdVisible, validationErrors]);
 
   //call CREATE hook
   const { mutateAsync: createUser, isPending: isCreatingUser } =
@@ -88,14 +88,14 @@ const Example = () => {
     
     await createUser(values);
     table.setCreatingRow(null); //exit creating mode
-    setIsCreating(false);
+    setIsIdVisible(false);
   };
 
   //UPDATE action
   const handleSaveUser = async ({ values, table }) => {
     await updateUser(values);
     table.setEditingRow(null); //exit editing mode
-    setIsCreating(false);
+    setIsIdVisible(false);
   };
 
   //DELETE action
@@ -126,19 +126,19 @@ const Example = () => {
     },
     onCreatingRowCancel: () => {
       setValidationErrors({});
-      setIsCreating(true); // Set isCreating to false when the create modal is cancelled
+      setIsIdVisible(true); // Set isIdVisible to false when the create modal is cancelled
     },
     onCreatingRowSave: (newData) => {
       handleCreateUser(newData);
-      setIsCreating(true); // Set isCreating to false when the create modal is closed
+      setIsIdVisible(true); // Set isIdVisible to false when the create modal is closed
     },
     onEditingRowCancel: () => {
       setValidationErrors({});
-      setIsCreating(true); // Set isCreating to false when the edit modal is cancelled
+      setIsIdVisible(true); // Set isIdVisible to false when the edit modal is cancelled
     },
     onEditingRowSave: (newData) => {
       handleSaveUser(newData);
-      setIsCreating(true); // Set isCreating to false when the edit modal is closed
+      setIsIdVisible(true); // Set isIdVisible to false when the edit modal is closed
     },
     //optionally customize modal content
     renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
@@ -172,7 +172,7 @@ const Example = () => {
       <Box sx={{ display: 'flex', gap: '1rem' }}>
         <Tooltip title="Edit">
           <IconButton onClick={() => {
-            setIsCreating(false);
+            setIsIdVisible(false);
             table.setEditingRow(row)
           }}
           >
