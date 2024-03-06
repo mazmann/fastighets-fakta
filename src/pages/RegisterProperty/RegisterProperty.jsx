@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 function NewProperty() {
@@ -12,8 +12,24 @@ function NewProperty() {
   const [contactRep, setContactRep] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
+  const [firms, setFirms] = useState([]);
   const [successMessage, setSuccessMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
+
+  useEffect(() => {
+    // Fetch the list of firms when the component mounts
+    const fetchFirms = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/firm'); // Adjust the endpoint
+        const firmsData = await response.json();
+        setFirms(firmsData);
+      } catch (error) {
+        console.error('Error fetching firms:', error);
+      }
+    };
+
+    fetchFirms();
+  }, []);
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
@@ -88,11 +104,17 @@ function NewProperty() {
             </tr>
             <tr>
               <td>
-                <input
-                  type="text"
+              <select
                   value={propertyOwner}
                   onChange={(e) => setPropertyOwner(e.target.value)}
-                />
+                >
+                  <option value="" disabled>Select property owner</option>
+                  {firms.map((firm) => (
+                    <option key={firm._id} value={firm.firmName}>
+                      {firm.firmName}
+                    </option>
+                  ))}
+                </select>
               </td>
               <td>
                 <input
