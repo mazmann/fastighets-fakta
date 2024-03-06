@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { MoreInfoButton } from '../../components/Buttons';
 import {
   MRT_EditActionButtons,
@@ -96,10 +97,12 @@ const MainPropertyTable = () => {
     }),
 
     renderTopToolbarCustomActions: ({ table }) => (
+      <Link to={`/register`}>
       <Button
         variant="contained">
         Add Property
       </Button>
+      </Link>
     ),
 
     renderDetailPanel: ({ row }) =>

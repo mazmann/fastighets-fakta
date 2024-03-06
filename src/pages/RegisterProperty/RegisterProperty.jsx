@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 function NewProperty() {
@@ -223,7 +224,9 @@ function NewProperty() {
 
         <br />
         <div className='button-container'>
-
+        <Link to={`/display`}>
+<button className='back-to-display-button'>Back</button>
+</Link>
           {!successMessage ? (
             <button className="submit-button" type="submit" onClick={handleOnSubmit}>
               Submit

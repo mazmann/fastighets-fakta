@@ -20,10 +20,13 @@
 
 
 .more-info-button {
-  background-color: #fed017;
+  background-color: #1976d2;
   border-radius: 5px;
-  color: #34410d;
-  font-weight: bold;
+  letter-spacing: 0.02857em;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.875rem;
+font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   border: none;
   height: 2rem;
   width: 5rem;
@@ -32,7 +35,6 @@
 
 .more-info-button:hover {
   cursor: pointer;
-  background-color: #e5bd00; /* Slightly darker yellow */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Shadow */
 }
 

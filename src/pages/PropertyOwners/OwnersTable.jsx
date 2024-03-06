@@ -88,14 +88,14 @@ const Example = () => {
     
     await createUser(values);
     table.setCreatingRow(null); //exit creating mode
-    setIsIdVisible(false);
+
   };
 
   //UPDATE action
   const handleSaveUser = async ({ values, table }) => {
     await updateUser(values);
     table.setEditingRow(null); //exit editing mode
-    setIsIdVisible(false);
+
   };
 
   //DELETE action
@@ -143,7 +143,7 @@ const Example = () => {
     //optionally customize modal content
     renderCreateRowDialogContent: ({ table, row, internalEditComponents }) => (
       <>
-        <DialogTitle variant="h3">Create New User</DialogTitle>
+        <DialogTitle variant="h3">Add Company</DialogTitle>
         <DialogContent
           sx={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
         >
