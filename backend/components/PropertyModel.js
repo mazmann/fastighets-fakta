@@ -1,10 +1,8 @@
 import mongoose, { Schema } from 'mongoose';
-import _Firm from './FirmModel';
 
 const propertySchema = new mongoose.Schema({
     propertyOwner: {
-        type: Schema.Types.ObjectId,
-        ref: 'Firm',
+        type: String,
         required: true,
     },
     propertyTag: {
