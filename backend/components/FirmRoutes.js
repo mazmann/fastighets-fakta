@@ -37,8 +37,6 @@ app.put('/firm/:firmId', async (req, res) => {
         const firmId = req.params.firmId;
         const updatedData = req.body;
 
-        updatedData.secondDate = new Date();
-
         const updatedFirm = await firm.findByIdAndUpdate(firmId, updatedData, { new: true }); // Corrected to use firm instead of firm
 
         if (!updatedFirm) {
@@ -52,7 +50,7 @@ app.put('/firm/:firmId', async (req, res) => {
     }
 });
 
-app.post('/register', async (req, resp) => {
+app.post('/firm/register', async (req, resp) => {
     try {
         const newFirm = new firm(req.body); // Corrected to use firm instead of firm
         let result = await newFirm.save();

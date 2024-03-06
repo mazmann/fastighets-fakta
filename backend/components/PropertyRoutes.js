@@ -37,8 +37,6 @@ app.put('/properties/:propertyId', async (req, res) => {
         const propertyId = req.params.propertyId;
         const updatedData = req.body;
 
-        updatedData.secondDate = new Date();
-
         const updatedproperty = await property.findByIdAndUpdate(propertyId, updatedData, { new: true });
 
         if (!updatedproperty) {
@@ -52,7 +50,7 @@ app.put('/properties/:propertyId', async (req, res) => {
     }
 });
 
-app.post('/register', async (req, resp) => {
+app.post('/properties/register', async (req, resp) => {
     try {
         const newproperty = new property(req.body);
         let result = await newproperty.save();

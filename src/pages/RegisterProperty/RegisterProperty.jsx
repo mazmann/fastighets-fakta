@@ -43,7 +43,7 @@ function NewProperty() {
       return;
     }
 
-    let result = await fetch('http://localhost:5000/api/register', {
+    let result = await fetch('http://localhost:5000/api/properties/register', {
       method: 'post',
       body: JSON.stringify({
         propertyOwner,

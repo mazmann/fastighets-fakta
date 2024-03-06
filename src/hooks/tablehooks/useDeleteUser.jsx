@@ -10,19 +10,26 @@ import {
 function useDeleteUser() {
     const queryClient = useQueryClient();
     return useMutation({
-      mutationFn: async (userId) => {
-        //send api update request here
-        await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-        return Promise.resolve();
-      },
-      //client side optimistic update
-      onMutate: (userId) => {
-        queryClient.setQueryData(['users'], (prevUsers) =>
-          prevUsers?.filter((user) => user.id !== userId),
-        );
-      },
-      // onSettled: () => queryClient.invalidateQueries({ queryKey: ['users'] }), //refetch users after mutation, disabled for demo
+        mutationFn: async (user) => {
+            console.log('user:', user);
+            const response = await fetch(`http://localhost:5000/api/firm/${user._id}`, {
+                method: 'DELETE',
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to delete user');
+            }
+
+            return response.json();
+        },
+        //client side optimistic update
+        onMutate: (userId) => {
+            queryClient.setQueryData(['users'], (prevUsers) =>
+                prevUsers?.filter((user) => user.id !== userId),
+            );
+        },
+        onSettled: () => queryClient.invalidateQueries({ queryKey: ['users'] }), //refetch users after mutation, disabled for demo
     });
-  }
+}
 
 export { useDeleteUser }

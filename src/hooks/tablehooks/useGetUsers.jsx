@@ -6,22 +6,21 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
-// useGetUsers.jsx
-import { User, fakeData, usStates } from '../../pages/PropertyOwners/makeData';
-
-// Rest of your code using User, fakeData, usStates
-
 
 function useGetUsers() {
     return useQuery({
-      queryKey: ['users'],
-      queryFn: async () => {
-        //send api request here
-        await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-        return Promise.resolve(fakeData);
-      },
-      refetchOnWindowFocus: false,
+        queryKey: ['users'],
+        queryFn: async () => {
+            const response = await fetch('http://localhost:5000/api/firm');
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch users');
+            }
+
+            return response.json();
+        },
+        refetchOnWindowFocus: true,
     });
-  }
+}
 
 export { useGetUsers }

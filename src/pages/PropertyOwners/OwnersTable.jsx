@@ -33,76 +33,36 @@ import { useCreateUser } from '../../hooks/tablehooks/useCreateUser';
 
 const Example = () => {
   const [validationErrors, setValidationErrors] = useState({});
-
-  const columns = useMemo(
-    () => [
+  const [isCreating, setIsCreating] = useState(false);
+  const columns = useMemo(() => {
+    const baseColumns = [
       {
-        accessorKey: 'id',
-        header: 'Id',
-        enableEditing: false,
-        size: 80,
-      },
-      {
-        accessorKey: 'firstName',
+        accessorKey: 'firmName',
         header: 'First Name',
-        muiEditTextFieldProps: {
-          required: true,
-          error: !!validationErrors?.firstName,
-          helperText: validationErrors?.firstName,
-          //remove any previous validation errors when user focuses on the input
-          onFocus: () =>
-            setValidationErrors({
-              ...validationErrors,
-              firstName: undefined,
-            }),
-          //optionally add validation checking for onBlur or onChange
-        },
       },
       {
-        accessorKey: 'lastName',
+        accessorKey: 'organisationNumber',
         header: 'Last Name',
-        muiEditTextFieldProps: {
-          required: true,
-          error: !!validationErrors?.lastName,
-          helperText: validationErrors?.lastName,
-          //remove any previous validation errors when user focuses on the input
-          onFocus: () =>
-            setValidationErrors({
-              ...validationErrors,
-              lastName: undefined,
-            }),
-        },
       },
       {
-        accessorKey: 'email',
+        accessorKey: 'contactRep',
         header: 'Email',
-        muiEditTextFieldProps: {
-          type: 'email',
-          required: true,
-          error: !!validationErrors?.email,
-          helperText: validationErrors?.email,
-          //remove any previous validation errors when user focuses on the input
-          onFocus: () =>
-            setValidationErrors({
-              ...validationErrors,
-              email: undefined,
-            }),
-        },
       },
       {
-        accessorKey: 'state',
+        accessorKey: 'visitingAddress',
         header: 'State',
-        editVariant: 'select',
-        editSelectOptions: usStates,
-        muiEditTextFieldProps: {
-          select: true,
-          error: !!validationErrors?.state,
-          helperText: validationErrors?.state,
-        },
       },
-    ],
-    [validationErrors],
-  );
+    ];
+  
+    if (!isCreating) {
+      baseColumns.unshift({
+        accessorKey: '_id',
+        header: 'ID',
+      });
+    }
+  
+    return baseColumns;
+  }, [isCreating, validationErrors]);
 
   //call CREATE hook
   const { mutateAsync: createUser, isPending: isCreatingUser } =
@@ -123,32 +83,31 @@ const Example = () => {
 
   //CREATE action
   const handleCreateUser = async ({ values, table }) => {
-    const newValidationErrors = validateUser(values);
-    if (Object.values(newValidationErrors).some((error) => error)) {
-      setValidationErrors(newValidationErrors);
-      return;
-    }
-    setValidationErrors({});
+
+    
     await createUser(values);
     table.setCreatingRow(null); //exit creating mode
+    setIsCreating(false);
   };
 
   //UPDATE action
   const handleSaveUser = async ({ values, table }) => {
-    const newValidationErrors = validateUser(values);
-    if (Object.values(newValidationErrors).some((error) => error)) {
-      setValidationErrors(newValidationErrors);
-      return;
-    }
-    setValidationErrors({});
+    // const newValidationErrors = validateUser(values);
+    // if (Object.values(newValidationErrors).some((error) => error)) {
+    //   setValidationErrors(newValidationErrors);
+    //   return;
+    // }
+    // setValidationErrors({});
     await updateUser(values);
     table.setEditingRow(null); //exit editing mode
+    setIsCreating(false);
   };
 
   //DELETE action
   const openDeleteConfirmModal = (row) => {
+    console.log(row.original);
     if (window.confirm('Are you sure you want to delete this user?')) {
-      deleteUser(row.original.id);
+      deleteUser(row.original);
     }
   };
 
@@ -205,7 +164,11 @@ const Example = () => {
     renderRowActions: ({ row, table }) => (
       <Box sx={{ display: 'flex', gap: '1rem' }}>
         <Tooltip title="Edit">
-          <IconButton onClick={() => table.setEditingRow(row)}>
+          <IconButton onClick={() => {
+            setIsCreating(true);
+            table.setEditingRow(row)
+          }}
+          >
             <EditIcon />
           </IconButton>
         </Tooltip>
@@ -220,6 +183,7 @@ const Example = () => {
       <Button
         variant="contained"
         onClick={() => {
+          setIsCreating(true);
           table.setCreatingRow(true); //simplest way to open the create row modal with no default values
           //or you can pass in a row object to set default values with the `createRow` helper function
           // table.setCreatingRow(

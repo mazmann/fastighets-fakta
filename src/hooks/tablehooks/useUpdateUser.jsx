@@ -10,21 +10,34 @@ import {
 function useUpdateUser() {
     const queryClient = useQueryClient();
     return useMutation({
-      mutationFn: async (user) => {
-        //send api update request here
-        await new Promise((resolve) => setTimeout(resolve, 1000)); //fake api call
-        return Promise.resolve();
+        mutationFn: async (user) => {
+            console.log('user:', user);
+            const response = await fetch(`http://localhost:5000/api/firm/${user._id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to update user');
+            }
+
+            return response.json();
+        },
+        //client side optimistic update
+        onMutate: (newUserInfo) => {
+          console.log('newUserInfo:', newUserInfo);
+          queryClient.setQueryData(['users'], (prevUsers) => {
+              console.log('prevUsers:', prevUsers);
+              return prevUsers?.map((prevUser) =>
+                  prevUser._id === newUserInfo._id ? newUserInfo : prevUser,
+              );
+          });
       },
-      //client side optimistic update
-      onMutate: (newUserInfo) => {
-        queryClient.setQueryData(['users'], (prevUsers) =>
-          prevUsers?.map((prevUser) =>
-            prevUser.id === newUserInfo.id ? newUserInfo : prevUser,
-          ),
-        );
-      },
-      // onSettled: () => queryClient.invalidateQueries({ queryKey: ['users'] }), //refetch users after mutation, disabled for demo
+        // onSettled: () => queryClient.invalidateQueries({ queryKey: ['users'] }), //refetch users after mutation, disabled for demo
     });
-  }
+}
 
 export { useUpdateUser }
