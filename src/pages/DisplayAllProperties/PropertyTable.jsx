@@ -16,20 +16,29 @@ import {
 import { Box, Typography } from '@mui/material';
 
 
-const Example = () => {
-  const [data, setData] = useState(null);
-  const fetchData = async () => {
+const MainPropertyTable = () => {
+  const [properties, setProperties] = useState(null);
+  const [firms, setFirms] = useState(null);
+  const fetchProperties = async () => {
     // Perform your asynchronous data fetching here
-    // For example, using fetch or axios
+    // For Main, using fetch or axios
     const response = await fetch('http://localhost:5000/api/properties');
     const data = await response.json();
     console.log(data);
-    setData(data); // setData is a function that updates the state
-
+    setProperties(data);
+  };
+  const fetchFirms = async () => {
+    // Perform your asynchronous data fetching here
+    // For Main, using fetch or axios
+    const response = await fetch('http://localhost:5000/api/firm');
+    const data = await response.json();
+    console.log(data);
+    setFirms(data);
   };
 
   useEffect(() => {
-    fetchData(); // Call the function to fetch the data when the component mounts
+    fetchProperties(); // Call the function to fetch the data when the component mounts
+    fetchFirms();
   }, []);
 
 
@@ -63,7 +72,7 @@ const Example = () => {
 
   const table = useMaterialReactTable({
     columns,
-    data: data || [],
+    data: properties || [],
     enableExpandAll: false, //disable expand all button
     muitabletdProps: () => ({ 
       sx: () => ({
@@ -121,4 +130,4 @@ const Example = () => {
 
 
 
-export default Example;
+export default MainPropertyTable;

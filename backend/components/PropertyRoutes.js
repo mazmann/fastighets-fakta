@@ -6,7 +6,7 @@ import property from './PropertyModel.js';
 const app = express();
 
 
-app.get('/', async (req, resp) => {
+app.get('/properties', async (req, resp) => {
     try {
         const properties = await property.find({});
         resp.json(properties);
