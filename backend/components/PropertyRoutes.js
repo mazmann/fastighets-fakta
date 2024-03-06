@@ -1,13 +1,12 @@
 // propertyRoutes.js
 import express from 'express';
 import property from './PropertyModel.js';
-import cors from 'cors';
+
 
 const app = express();
-app.use(express.json());
-app.use(cors());
 
-app.get('/properties', async (req, resp) => {
+
+app.get('/', async (req, resp) => {
     try {
         const properties = await property.find({});
         resp.json(properties);
@@ -84,6 +83,11 @@ app.delete('/properties/:propertyId', async (req, res) => {
         console.error('Error:', e);
         res.status(500).json({ error: 'Something went wrong' });
     }
+});
+
+app.use((err, req, res, next) => {
+    console.error('Unexpected Error:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
 });
 
 export default app;

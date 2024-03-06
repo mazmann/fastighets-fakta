@@ -5,7 +5,7 @@ const DeleteProperty = ({ propertyId }) => {
 
     const handleDelete = async () => {
         try {
-            const response = await fetch(`/properties/${propertyId}`, {
+            const response = await fetch(`/api/properties/${propertyId}`, {
                 method: 'DELETE',
                 
             });

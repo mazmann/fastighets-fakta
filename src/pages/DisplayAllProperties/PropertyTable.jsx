@@ -21,7 +21,7 @@ const Example = () => {
   const fetchData = async () => {
     // Perform your asynchronous data fetching here
     // For example, using fetch or axios
-    const response = await fetch('http://localhost:5000/properties');
+    const response = await fetch('http://localhost:5000/api/properties');
     const data = await response.json();
     console.log(data);
     setData(data); // setData is a function that updates the state

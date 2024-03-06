@@ -5,7 +5,7 @@ const PropertyFetcher = ({ setProperties }) => {
 
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/properties');
+        const response = await fetch('http://localhost:5000/api/properties');
         const data = await response.json();
         setProperties(data);
       } catch (error) {
