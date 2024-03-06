@@ -24,11 +24,11 @@ import {
 import { fakeData, usStates } from './makeData';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useDeleteUser } from '../../hooks/tablehooks/useDeleteUser';
-import { useGetUsers } from '../../hooks/tablehooks/useGetUsers';
-import { useUpdateUser } from '../../hooks/tablehooks/useUpdateUser';
-import { validateUser } from '../../hooks/tablehooks/validateUser';
-import { useCreateUser } from '../../hooks/tablehooks/useCreateUser';
+import { useDeleteUser } from '../../hooks/ownersTableHooks/useDeleteUser';
+import { useGetUsers } from '../../hooks/ownersTableHooks/useGetUsers';
+import { useUpdateUser } from '../../hooks/ownersTableHooks/useUpdateUser';
+import { validateUser } from '../../hooks/ownersTableHooks/validateUser';
+import { useCreateUser } from '../../hooks/ownersTableHooks/useCreateUser';
 
 
 const Example = () => {
@@ -38,19 +38,19 @@ const Example = () => {
     const baseColumns = [
       {
         accessorKey: 'firmName',
-        header: 'First Name',
+        header: 'Company Name',
       },
       {
         accessorKey: 'organisationNumber',
-        header: 'Last Name',
+        header: 'Organisation Number',
       },
       {
         accessorKey: 'contactRep',
-        header: 'Email',
+        header: 'Contact Representative',
       },
       {
         accessorKey: 'visitingAddress',
-        header: 'State',
+        header: 'Street Address, Area',
       },
     ];
   
@@ -74,6 +74,7 @@ const Example = () => {
     isFetching: isFetchingUsers,
     isLoading: isLoadingUsers,
   } = useGetUsers();
+  
   //call UPDATE hook
   const { mutateAsync: updateUser, isPending: isUpdatingUser } =
     useUpdateUser();
@@ -92,12 +93,6 @@ const Example = () => {
 
   //UPDATE action
   const handleSaveUser = async ({ values, table }) => {
-    // const newValidationErrors = validateUser(values);
-    // if (Object.values(newValidationErrors).some((error) => error)) {
-    //   setValidationErrors(newValidationErrors);
-    //   return;
-    // }
-    // setValidationErrors({});
     await updateUser(values);
     table.setEditingRow(null); //exit editing mode
     setIsCreating(false);

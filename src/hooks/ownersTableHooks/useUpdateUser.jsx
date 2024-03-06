@@ -36,7 +36,7 @@ function useUpdateUser() {
               );
           });
       },
-        // onSettled: () => queryClient.invalidateQueries({ queryKey: ['users'] }), //refetch users after mutation, disabled for demo
+         onSettled: () => queryClient.invalidateQueries({ queryKey: ['users'] }), //refetch users after mutation, disabled for demo
     });
 }
 
